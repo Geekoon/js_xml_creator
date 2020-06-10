@@ -5,7 +5,6 @@ import (
 	"encoding/xml"
 	"fmt"
 	_ "github.com/go-sql-driver/mysql"
-	"io"
 	"log"
 	"os"
 )
@@ -80,91 +79,49 @@ func getProduct() []Product {
 	return products
 }
 
-func getCategory() []GroupProduct {
-	rows, err := database.Query("select id, name from js78base.tbl_product_item_kind AS pk")
-	if err != nil {
-		log.Println("MySQL Error:", err)
-	}
-	defer rows.Close()
-
-	var gp []GroupProduct
-
-	for rows.Next() {
-		p := GroupProduct{}
-		err := rows.Scan(&p.id, &p.name)
-		if err != nil {
-			fmt.Println(err)
-			continue
-		}
-		gp = append(gp, p)
-	}
-	return gp
-}
-
-func (s *OfferArray) AddOffer(sId int, sName string, sUrl string) {
-	staffRecord := Offer{Id: sId, Name: sName, Url: sUrl}
-	s.Offers = append(s.Offers, staffRecord)
-}
-
-func (s *CategoryArray) AddCategory(sId int, sName string) {
-	staffRecord := Category{Id: sId, Name: sName}
-	s.Categories = append(s.Categories, staffRecord)
-}
-
 func main() {
-
-	db, err := sql.Open("mysql", "antor:Yehat13@/js78base")
+	xmlFileName := "import.xml"
+	xmlFile, err := os.Open("data/" + xmlFileName)
 	if err != nil {
-		log.Println(err)
+		fmt.Println("Unable to open XML file:", err)
+		os.Exit(1)
 	}
+	defer xmlFile.Close()
 
-	database = db
-	defer db.Close()
+	/*	enc := xml.NewEncoder(xmlWriter)
+		enc.Indent("", "    ")
+		if err := enc.Encode(v); err != nil {
+			fmt.Printf("error: %v\n", err)
+		}
 
-	pDB := getProduct()
-	catDB := getCategory()
 
-	/*	filename := "ppp.txt"
-		file, err := os.Create(filename)
+		db, err := sql.Open("mysql", "antor:Yehat13@/js78base")
 		if err != nil {
-			fmt.Println("Unable to save file:", err)
-			os.Exit(1)
+			log.Println(err)
 		}
-		defer file.Close()
-		for i := 0; i < len(catDB); i++ {
-			fmt.Fprintln(file, catDB[i].id, catDB[i].name)
-		}
-	*/
-	var v = YmlCatalog{}
-	for i := 0; i < len(catDB); i++ {
-		v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].name)
-	}
-	for i := 0; i < len(pDB); i++ {
-		v.Shop.AllOffers.AddOffer(pDB[i].id, pDB[i].name, pDB[i].url)
-	}
 
+		database = db
+		defer db.Close()
+
+		pDB := getProduct()
+
+		/*	filename := "ppp.txt"
+			file, err := os.Create(filename)
+			if err != nil {
+				fmt.Println("Unable to save file:", err)
+				os.Exit(1)
+			}
+			defer file.Close()
+			for i := 0; i < len(catDB); i++ {
+				fmt.Fprintln(file, catDB[i].id, catDB[i].name)
+			}
+	*/
+	//	var v = YmlCatalog{}
 	/*	xmlString, err := xml.MarshalIndent(v, "", "    ")
 		if err != nil {
 			fmt.Println("Error in MarshalIndent: ", err)
 		}
 		fmt.Printf("%s \n", string(xmlString))
 	*/
-
-	xmlFileName := "offers.xml"
-	xmlFile, err := os.Create(xmlFileName)
-	if err != nil {
-		fmt.Println("Unable to save XML file:", err)
-		os.Exit(1)
-	}
-	defer xmlFile.Close()
-	xmlWriter := io.Writer(xmlFile)
-
-	xmlWriter.Write([]byte(xml.Header))
-
-	enc := xml.NewEncoder(xmlWriter)
-	enc.Indent("", "    ")
-	if err := enc.Encode(v); err != nil {
-		fmt.Printf("error: %v\n", err)
-	}
 
 }
