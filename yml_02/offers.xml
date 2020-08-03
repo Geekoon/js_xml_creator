@@ -1,0 +1,1797 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<yml_catalog>
+    <shop>
+        <categories>
+            <category id="10" parent_id="2">Колготки</category>
+            <category id="11" parent_id="10">Filodoro Classic</category>
+            <category id="12" parent_id="11">классика</category>
+            <category id="40" parent_id="2">Белье поясное </category>
+            <category id="41" parent_id="40">Primal</category>
+            <category id="42" parent_id="41">распродажа детские боксеры (- 50%)</category>
+            <category id="65" parent_id="41">распродажа классика (- 50%)</category>
+            <category id="74" parent_id="40">Jadea</category>
+            <category id="75" parent_id="74">классика стринги</category>
+            <category id="109" parent_id="10">Giulietta</category>
+            <category id="110" parent_id="109">Классика</category>
+            <category id="111" parent_id="109">Осенне-зимние</category>
+            <category id="112" parent_id="109">распродажа (-50%)</category>
+            <category id="130" parent_id="2">Белье корсетное</category>
+            <category id="286" parent_id="2">Леггинсы</category>
+            <category id="287" parent_id="286">Giulia</category>
+            <category id="288" parent_id="287">распродажа детская (- 50%)</category>
+            <category id="289" parent_id="287">Классика</category>
+            <category id="290" parent_id="287">леггинсы-брюки - весна/лето</category>
+            <category id="291" parent_id="287">леггинсы-брюки классика</category>
+            <category id="292" parent_id="287">Леггинсы-брюки - осень/зима</category>
+            <category id="293" parent_id="287">Фантазия хлопковая</category>
+            <category id="294" parent_id="287">Шорты</category>
+            <category id="334" parent_id="10">Omsa</category>
+            <category id="335" parent_id="334">Классика</category>
+            <category id="336" parent_id="334">Корректирующие</category>
+            <category id="337" parent_id="334">Осенне-зимние</category>
+            <category id="396" parent_id="2">Белье бесшовное</category>
+            <category id="397" parent_id="396">Beauty Secret</category>
+            <category id="398" parent_id="397">распродажа (- 50%)</category>
+            <category id="399" parent_id="396">Gatta</category>
+            <category id="400" parent_id="399">распродажа классика (- 50%)</category>
+            <category id="401" parent_id="399">распродажа весна/лето (- 50%)</category>
+            <category id="402" parent_id="399">распродажа демисезонная (- 50%)</category>
+            <category id="403" parent_id="399">фантазия весна/лето</category>
+            <category id="404" parent_id="399">фантазия осень/зима</category>
+            <category id="405" parent_id="396">Giulia</category>
+            <category id="406" parent_id="15920">Giulia</category>
+            <category id="407" parent_id="405">майки с длинным рукавом</category>
+            <category id="408" parent_id="405">распродажа (- 50%)</category>
+            <category id="409" parent_id="405">Линия &#34;Plus&#34;</category>
+            <category id="410" parent_id="396">Sensi</category>
+            <category id="411" parent_id="410">ангора</category>
+            <category id="412" parent_id="410">боди</category>
+            <category id="413" parent_id="410">классика</category>
+            <category id="414" parent_id="410">распродажа ангора (- 50%)</category>
+            <category id="415" parent_id="410">распродажа фантазия (- 50%)</category>
+            <category id="416" parent_id="410">распродажа осень/зима (- 50%)</category>
+            <category id="417" parent_id="2">Белье корректирующее</category>
+            <category id="418" parent_id="417">Andra Shape</category>
+            <category id="419" parent_id="417">Eldar</category>
+            <category id="420" parent_id="419">трусы</category>
+            <category id="421" parent_id="419">трусы макси</category>
+            <category id="422" parent_id="15921">боди корректирующие</category>
+            <category id="423" parent_id="417">Giulia</category>
+            <category id="424" parent_id="417">Marilyn</category>
+            <category id="426" parent_id="130">Amore A Prima Vista</category>
+            <category id="427" parent_id="549">Amore A Prima Vista </category>
+            <category id="428" parent_id="426">классика</category>
+            <category id="429" parent_id="426">распродажа</category>
+            <category id="430" parent_id="426">фантазия</category>
+            <category id="434" parent_id="130">Barbara Bettoni</category>
+            <category id="435" parent_id="434">Домашняя одежда</category>
+            <category id="436" parent_id="434">классика</category>
+            <category id="437" parent_id="434">распродажа</category>
+            <category id="438" parent_id="434">фантазия</category>
+            <category id="439" parent_id="130">Eloria</category>
+            <category id="440" parent_id="439">Белье Eloria - распродажа</category>
+            <category id="448" parent_id="130">Jadea</category>
+            <category id="449" parent_id="448">распродажа комплекты женские (--50%)</category>
+            <category id="450" parent_id="448">распродажа комплекты подростковые (-50%)</category>
+            <category id="451" parent_id="448">распродажа (-50%)</category>
+            <category id="453" parent_id="130">Key</category>
+            <category id="454" parent_id="453">классика</category>
+            <category id="455" parent_id="453">распродажа (- 50%)</category>
+            <category id="456" parent_id="453">распродажа фантазия (- 50%)</category>
+            <category id="470" parent_id="503">Griff</category>
+            <category id="471" parent_id="470">боксеры</category>
+            <category id="472" parent_id="470">трусы</category>
+            <category id="473" parent_id="470">линия &#34;Jersey&#34;</category>
+            <category id="474" parent_id="470">линия Print</category>
+            <category id="475" parent_id="470">линия Satin</category>
+            <category id="476" parent_id="74">детские и подростковые трусы</category>
+            <category id="477" parent_id="74">классика трусы</category>
+            <category id="478" parent_id="74">линия &#34;Cotton &amp; Modal&#34;</category>
+            <category id="479" parent_id="74">линия &#34;Green Cotton&#34;</category>
+            <category id="480" parent_id="74">линия &#34;Laser&#34;</category>
+            <category id="482" parent_id="74">линия &#34;Sexi&#34;</category>
+            <category id="483" parent_id="74">распродажа стринги (- 50%)</category>
+            <category id="484" parent_id="74">распродажа трусы (- 50%)</category>
+            <category id="485" parent_id="74">распродажа трусы детские (- 50%)</category>
+            <category id="486" parent_id="74">линия &#34;Fashion&#34;</category>
+            <category id="487" parent_id="74">фантазия кружевная</category>
+            <category id="488" parent_id="40">Key</category>
+            <category id="489" parent_id="488">распродажа трусы мужские (- 50%)</category>
+            <category id="490" parent_id="488">мужские трусы фантазия</category>
+            <category id="491" parent_id="488">распродажа трусы женские (- 50%)</category>
+            <category id="492" parent_id="488">трусы для мальчиков</category>
+            <category id="493" parent_id="488">трусы женские</category>
+            <category id="494" parent_id="488">распродажа трусы подростковые (- 50%)</category>
+            <category id="503" parent_id="40">Minimi</category>
+            <category id="504" parent_id="503">стринги</category>
+            <category id="505" parent_id="503">трусы</category>
+            <category id="506" parent_id="503">трусы макси</category>
+            <category id="507" parent_id="40">Moretta</category>
+            <category id="508" parent_id="507">распродажа (-50%)</category>
+            <category id="509" parent_id="40">Pandora</category>
+            <category id="510" parent_id="509">женская фантазия линия &#34;Promo&#34;</category>
+            <category id="511" parent_id="509">женская фантазия трусы</category>
+            <category id="512" parent_id="509">распродажа мужская (- 50%)</category>
+            <category id="513" parent_id="509">распродажа &#34;Top Fashion&#34; (- 50%)</category>
+            <category id="514" parent_id="41">распродажа детские трусы (- 50%)</category>
+            <category id="515" parent_id="41">детские трусы &#34;Enrico Coveri&#34;</category>
+            <category id="516" parent_id="41">боксеры и слипы линия &#34;Promo&#34;</category>
+            <category id="517" parent_id="41">линия &#34;Enrico Coveri&#34;</category>
+            <category id="518" parent_id="41">линия &#34;Il Granchio&#34;</category>
+            <category id="519" parent_id="41">боксеры с принтами линия &#34;Promo&#34;</category>
+            <category id="520" parent_id="41">линия &#34;Promo&#34; трусы</category>
+            <category id="521" parent_id="41">распродажа линия &#34;Rams&#34; (- 50%)</category>
+            <category id="522" parent_id="41">распродажа &#34;Promo&#34; (- 50%)</category>
+            <category id="523" parent_id="41">мужские боксеры (- 50%)</category>
+            <category id="524" parent_id="41">мужские боксеры фантазия</category>
+            <category id="525" parent_id="41">распродажа мужские трусы (- 50%)</category>
+            <category id="526" parent_id="40">Rene Vilard</category>
+            <category id="527" parent_id="526">распродажа классика (- 50%)</category>
+            <category id="528" parent_id="526">распродажа (- 50%)</category>
+            <category id="529" parent_id="526">распродажа фантазия (- 50%)</category>
+            <category id="530" parent_id="40">Rossoporpora Donna</category>
+            <category id="531" parent_id="530">распродажа классика (- 50%)</category>
+            <category id="532" parent_id="530">женская классика трусы макси</category>
+            <category id="533" parent_id="530">женская линия &#34;Laser&#34;</category>
+            <category id="534" parent_id="530">женская линия &#34;Promo&#34;</category>
+            <category id="535" parent_id="530">распродажа линия &#34;Promo&#34; (- 50%)</category>
+            <category id="536" parent_id="530">женская распродажа стринги (- 50%)</category>
+            <category id="537" parent_id="530">распродажа (- 50%)</category>
+            <category id="538" parent_id="530">женская фантазия</category>
+            <category id="539" parent_id="40">Rossoporpora Uomo</category>
+            <category id="540" parent_id="539">мужская классика</category>
+            <category id="541" parent_id="539">мужские боксеры линия &#34;Promo&#34; </category>
+            <category id="542" parent_id="539">мужская линия &#34;Promo&#34; трусы</category>
+            <category id="543" parent_id="539">распродажа фантазия (- 50%)</category>
+            <category id="544" parent_id="539">распродажа мужская (- 50%)</category>
+            <category id="545" parent_id="539">мужские боксеры</category>
+            <category id="546" parent_id="539">мужская фантазия трусы</category>
+            <category id="547" parent_id="40">Snelly</category>
+            <category id="548" parent_id="547">распродажа (- 50%)</category>
+            <category id="549" parent_id="2">Домашняя одежда</category>
+            <category id="551" parent_id="549">Barbara Bettoni</category>
+            <category id="552" parent_id="549">Eldar</category>
+            <category id="553" parent_id="552">распродажа боди (- 50%)</category>
+            <category id="554" parent_id="552">пеньюары </category>
+            <category id="555" parent_id="552">распродажа пеньюары (- 50%) </category>
+            <category id="559" parent_id="11">корректирующие</category>
+            <category id="560" parent_id="11">осенне-зимние</category>
+            <category id="561" parent_id="10">Giulia</category>
+            <category id="562" parent_id="561">Классика</category>
+            <category id="563" parent_id="561">Корректирующие</category>
+            <category id="564" parent_id="561">линия &#34;Infinity&#34;</category>
+            <category id="565" parent_id="561">линия для беременных и больших размеров</category>
+            <category id="566" parent_id="561">Осенне-зимние</category>
+            <category id="567" parent_id="561">распродажа (- 50%)</category>
+            <category id="568" parent_id="561">сети</category>
+            <category id="569" parent_id="9904">чулки на силиконе</category>
+            <category id="570" parent_id="10">Golden Lady</category>
+            <category id="571" parent_id="570">Классика</category>
+            <category id="572" parent_id="570">корректирующие</category>
+            <category id="573" parent_id="570">Осенне-зимние</category>
+            <category id="574" parent_id="10">Innamore</category>
+            <category id="575" parent_id="574">Классика</category>
+            <category id="576" parent_id="574">Корректирующие</category>
+            <category id="577" parent_id="574">Осенне-зимние</category>
+            <category id="578" parent_id="574">распродажа (- 50%)</category>
+            <category id="579" parent_id="10">Levante</category>
+            <category id="580" parent_id="579">распродажа (-50%)</category>
+            <category id="581" parent_id="10">Minimi</category>
+            <category id="582" parent_id="581">Классика</category>
+            <category id="583" parent_id="581">Корректирующие</category>
+            <category id="584" parent_id="581">Осенне-зимние</category>
+            <category id="585" parent_id="581">Сети</category>
+            <category id="586" parent_id="9901">Minimi </category>
+            <category id="587" parent_id="10">Omero</category>
+            <category id="588" parent_id="587">Классика</category>
+            <category id="589" parent_id="587">Корректирующие</category>
+            <category id="590" parent_id="587">Осенне-зимние</category>
+            <category id="592" parent_id="10">Philippe Matignon</category>
+            <category id="593" parent_id="592">Классика</category>
+            <category id="594" parent_id="592">Корректирующие</category>
+            <category id="595" parent_id="592">Осенне-зимние</category>
+            <category id="596" parent_id="9901">Philippe Matignon </category>
+            <category id="597" parent_id="10">SiSi</category>
+            <category id="598" parent_id="597">Классика</category>
+            <category id="599" parent_id="597">Осенне-зимние</category>
+            <category id="600" parent_id="2">Колготки детские</category>
+            <category id="604" parent_id="600">Gatta</category>
+            <category id="605" parent_id="604">Демисезонные</category>
+            <category id="606" parent_id="604">Праздничные</category>
+            <category id="607" parent_id="604">распродажа (- 50%)</category>
+            <category id="608" parent_id="600">Giulia</category>
+            <category id="609" parent_id="608">Демисезонные</category>
+            <category id="610" parent_id="608">фантазия 20 ден</category>
+            <category id="611" parent_id="608">классика</category>
+            <category id="612" parent_id="608">распродажа (-50%)</category>
+            <category id="613" parent_id="608">Хлопковые</category>
+            <category id="614" parent_id="608">хлопковые фантазия</category>
+            <category id="615" parent_id="608">хлопковые &#34;Classic&#34;</category>
+            <category id="619" parent_id="600">Mona</category>
+            <category id="620" parent_id="619">Демисезонные</category>
+            <category id="621" parent_id="619">распродажа люрекс (-50%)</category>
+            <category id="622" parent_id="619">распродажа (-50%)</category>
+            <category id="623" parent_id="619">Хлопковые</category>
+            <category id="628" parent_id="600">Wola</category>
+            <category id="629" parent_id="628">Вискозные</category>
+            <category id="630" parent_id="628">Кальсоны</category>
+            <category id="631" parent_id="628">Махровые</category>
+            <category id="632" parent_id="628">Однотонные</category>
+            <category id="633" parent_id="628">распродажа 6-11 лет (- 50%)</category>
+            <category id="634" parent_id="628">Фактурные</category>
+            <category id="637" parent_id="286">Ballerina</category>
+            <category id="638" parent_id="637">распродажа (- 50%)</category>
+            <category id="639" parent_id="286">Filodoro Classic</category>
+            <category id="640" parent_id="286">Gatta</category>
+            <category id="641" parent_id="640">Классика</category>
+            <category id="642" parent_id="640">Леггинсы-брюки</category>
+            <category id="643" parent_id="640">распродажа леггинсы классика (- 50%)</category>
+            <category id="644" parent_id="640">распродажа леггинсы детские (- 50%)</category>
+            <category id="645" parent_id="640">распродажа (- 50%)</category>
+            <category id="646" parent_id="640">распродажа леггинсы фантазия (- 50%)</category>
+            <category id="648" parent_id="286">Jadea</category>
+            <category id="649" parent_id="648">распродажа (-50%)</category>
+            <category id="650" parent_id="286">Marilyn</category>
+            <category id="651" parent_id="650">распродажа классика (- 50%)</category>
+            <category id="652" parent_id="650">распродажа (- 50%)</category>
+            <category id="653" parent_id="650">фантазия</category>
+            <category id="654" parent_id="286">Minimi</category>
+            <category id="655" parent_id="286">Mona</category>
+            <category id="656" parent_id="655">распродажа классика (- 50%)</category>
+            <category id="657" parent_id="655">распродажа фантазия (- 50%)</category>
+            <category id="658" parent_id="655">фантазия</category>
+            <category id="659" parent_id="286">Omero</category>
+            <category id="660" parent_id="286">Pandora</category>
+            <category id="661" parent_id="2">Носки и гольфы</category>
+            <category id="662" parent_id="661">Filodoro Classic </category>
+            <category id="663" parent_id="661">Fiore</category>
+            <category id="664" parent_id="663">распродажа (- 50%)</category>
+            <category id="665" parent_id="663">распродажа носки (- 50%)</category>
+            <category id="666" parent_id="663">распродажа (- 50%)</category>
+            <category id="667" parent_id="661">Gatta </category>
+            <category id="668" parent_id="667">Детские</category>
+            <category id="669" parent_id="667">Классика</category>
+            <category id="670" parent_id="667">распродажа (- 50%)</category>
+            <category id="671" parent_id="667">Фантазия</category>
+            <category id="672" parent_id="661">Giulia </category>
+            <category id="673" parent_id="9643">хлопковые</category>
+            <category id="674" parent_id="672">распродажа гетры (- 50%)</category>
+            <category id="675" parent_id="672">носки хлопковые средние</category>
+            <category id="676" parent_id="672">Демисезонные фантазия</category>
+            <category id="677" parent_id="672">детские носки полиамидные</category>
+            <category id="678" parent_id="672">Классика</category>
+            <category id="679" parent_id="672">Осенне-зимние</category>
+            <category id="680" parent_id="672">распродажа (- 50%)</category>
+            <category id="681" parent_id="672">Сети</category>
+            <category id="682" parent_id="661">Giulietta </category>
+            <category id="683" parent_id="661">Griff </category>
+            <category id="684" parent_id="683">распродажа мужские (- 50%)</category>
+            <category id="685" parent_id="683">Женские весна-лето</category>
+            <category id="686" parent_id="683">мужские демисезонные</category>
+            <category id="687" parent_id="683">мужские COMFORT</category>
+            <category id="688" parent_id="683">мужские PREMIUM</category>
+            <category id="689" parent_id="683">мужские TREND</category>
+            <category id="690" parent_id="683">Спортивные</category>
+            <category id="691" parent_id="661">Hobby Line</category>
+            <category id="692" parent_id="691">Детские</category>
+            <category id="693" parent_id="691">Носки - тапочки</category>
+            <category id="694" parent_id="691">Тапочки - сапожки</category>
+            <category id="696" parent_id="661">Marilyn </category>
+            <category id="697" parent_id="696">Ботфорты и Гетры</category>
+            <category id="698" parent_id="696">Демисезонные</category>
+            <category id="699" parent_id="696">распродажа детские (- 50%)</category>
+            <category id="700" parent_id="696">распродажа классика (- 50%)</category>
+            <category id="701" parent_id="696">распродажа подследники (- 50%)</category>
+            <category id="702" parent_id="696">распродажа носки (- 50%)</category>
+            <category id="703" parent_id="696">распродажа носки весна/лето (- 50%)</category>
+            <category id="704" parent_id="696">распродажа носки осень/зима (- 50%)</category>
+            <category id="705" parent_id="661">Minimi</category>
+            <category id="713" parent_id="661">Omsa </category>
+            <category id="714" parent_id="661">Philippe Matignon</category>
+            <category id="715" parent_id="8274">Пляжная одежда</category>
+            <category id="716" parent_id="715">Anabel Arto</category>
+            <category id="717" parent_id="716">купальники детские</category>
+            <category id="718" parent_id="716">купальники женские</category>
+            <category id="719" parent_id="716">плавки детские</category>
+            <category id="720" parent_id="716">плавки мужские</category>
+            <category id="721" parent_id="716">Anabel Arto - пляжные аксессуары</category>
+            <category id="722" parent_id="715">Barbara Bettoni</category>
+            <category id="723" parent_id="722">аксессуары</category>
+            <category id="724" parent_id="722">раздельные</category>
+            <category id="725" parent_id="722">слитные</category>
+            <category id="726" parent_id="715">Charmante</category>
+            <category id="727" parent_id="726">распродажа купальники для комбинирования (- 50%)</category>
+            <category id="728" parent_id="726">распродажа купальники женские (- 50%)</category>
+            <category id="729" parent_id="726">распродажа плавки мужские (- 50%)</category>
+            <category id="730" parent_id="726">распродажа туники (- 50%)</category>
+            <category id="731" parent_id="715">David</category>
+            <category id="732" parent_id="715">Ewlon</category>
+            <category id="733" parent_id="715">Jolidon</category>
+            <category id="734" parent_id="715">Kris Line</category>
+            <category id="735" parent_id="734">купальники</category>
+            <category id="736" parent_id="734">распродажа (- 50%)</category>
+            <category id="737" parent_id="715">Madora</category>
+            <category id="738" parent_id="715">Marko</category>
+            <category id="739" parent_id="738">распродажа парео (- 50%)</category>
+            <category id="740" parent_id="738">распродажа раздельные (- 50%)</category>
+            <category id="741" parent_id="738">распродажа (- 50%)</category>
+            <category id="742" parent_id="738">распродажа слитные (- 50%)</category>
+            <category id="743" parent_id="715">Paphia</category>
+            <category id="744" parent_id="2">Термобелье</category>
+            <category id="745" parent_id="744">Gatta</category>
+            <category id="746" parent_id="744">Key</category>
+            <category id="747" parent_id="746">мужское</category>
+            <category id="748" parent_id="746">женское</category>
+            <category id="749" parent_id="746">подростковое</category>
+            <category id="750" parent_id="744">Mona</category>
+            <category id="751" parent_id="744">Pandora</category>
+            <category id="753" parent_id="744">Sensi</category>
+            <category id="754" parent_id="744">Spaio</category>
+            <category id="755" parent_id="754">линия &#34;Emmitou&#34;</category>
+            <category id="756" parent_id="754">линия &#34;Extreme Line&#34;</category>
+            <category id="757" parent_id="754">линия &#34;Relieve Line&#34;</category>
+            <category id="758" parent_id="754">линия &#34;Thermo Line Junior&#34;</category>
+            <category id="759" parent_id="754">линия &#34;Thermo Line&#34;</category>
+            <category id="760" parent_id="754">распродажа носки (- 50%)</category>
+            <category id="762" parent_id="2">Одежда</category>
+            <category id="764" parent_id="762">Eldar</category>
+            <category id="765" parent_id="764">линия &#34;Romantica Exclusive&#34;</category>
+            <category id="766" parent_id="764">блузки больших размеров (-50%)</category>
+            <category id="767" parent_id="764">линия &#34;Romantica Top&#34; 2015</category>
+            <category id="768" parent_id="764">блузки с длинным рукавом (- 50%)</category>
+            <category id="769" parent_id="764">блузки с коротким рукавом (- 50%)</category>
+            <category id="770" parent_id="764">распродажа майки линии &#34;Romantica&#34; (- 50%)</category>
+            <category id="771" parent_id="764">линия &#34;Romantica&#34;</category>
+            <category id="772" parent_id="764">майки (- 50%)</category>
+            <category id="773" parent_id="764">распродажа с коротким рукавом (- 50%)</category>
+            <category id="774" parent_id="762">Esotiq</category>
+            <category id="775" parent_id="774">Домашняя одежда</category>
+            <category id="776" parent_id="774">распродажа поло (- 50%)</category>
+            <category id="777" parent_id="774">распродажа домашняя одежда (- 50%)</category>
+            <category id="778" parent_id="774">распродажа футболки (- 50%)</category>
+            <category id="780" parent_id="762">Jadea</category>
+            <category id="781" parent_id="780">распродажа детская (- 50%)</category>
+            <category id="782" parent_id="780">распродажа женская (- 50%)</category>
+            <category id="783" parent_id="762">Key</category>
+            <category id="784" parent_id="783">детские майки для девочек</category>
+            <category id="785" parent_id="783">детские майки для мальчиков</category>
+            <category id="786" parent_id="783">распродажа женская домашняя одежда (- 50%)</category>
+            <category id="787" parent_id="783">распродажа мужские майки (- 50%)</category>
+            <category id="788" parent_id="783">распродажа (-50%)</category>
+            <category id="791" parent_id="762">Mona</category>
+            <category id="794" parent_id="762">Pandora</category>
+            <category id="795" parent_id="794">распродажа женская (- 50%)</category>
+            <category id="796" parent_id="794">распродажа мужские футболки классика (- 50%)</category>
+            <category id="797" parent_id="794">распродажа мужская (- 50%)</category>
+            <category id="798" parent_id="762">Rene Vilard</category>
+            <category id="799" parent_id="798">распродажа (- 50%)</category>
+            <category id="800" parent_id="798">распродажа майки и футболки (- 50%)</category>
+            <category id="801" parent_id="798">распродажа (- 50%)</category>
+            <category id="805" parent_id="2">Фантазия</category>
+            <category id="806" parent_id="805">Ballerina</category>
+            <category id="807" parent_id="806">распродажа люрекс (- 50%)</category>
+            <category id="809" parent_id="806">чулки</category>
+            <category id="810" parent_id="805">Fiore</category>
+            <category id="811" parent_id="810">имитация</category>
+            <category id="812" parent_id="810">имитация</category>
+            <category id="813" parent_id="810">классика</category>
+            <category id="814" parent_id="810">линия &#34;Obsession Sexi&#34;</category>
+            <category id="815" parent_id="810">линия &#34;Obsession&#34;</category>
+            <category id="816" parent_id="810">люрекс</category>
+            <category id="817" parent_id="810">Люрекс 2015</category>
+            <category id="818" parent_id="810">распродажа люрекс (- 50%)</category>
+            <category id="819" parent_id="810">20 ден</category>
+            <category id="820" parent_id="810">фантазия 40 ден</category>
+            <category id="821" parent_id="810">микрофибра</category>
+            <category id="822" parent_id="810">распродажа имитация (- 50%)</category>
+            <category id="823" parent_id="810">Фантазия осень/зима 2015</category>
+            <category id="824" parent_id="9903">чулки распродажа (- 50%)</category>
+            <category id="825" parent_id="805">Gabriella</category>
+            <category id="826" parent_id="825">распродажа (-50%)</category>
+            <category id="827" parent_id="805">Gatta</category>
+            <category id="828" parent_id="827">имитация</category>
+            <category id="829" parent_id="827">классика</category>
+            <category id="830" parent_id="827">линия &#34;Beauty&#34;</category>
+            <category id="831" parent_id="827">распродажа люрекс (- 50%)</category>
+            <category id="832" parent_id="827">осенне-зимние</category>
+            <category id="833" parent_id="827">распродажа весна/лето (- 50%)</category>
+            <category id="834" parent_id="827">распродажа (- 50%)</category>
+            <category id="835" parent_id="827">распродажа осень/зима (- 50%)</category>
+            <category id="836" parent_id="827">распродажа хлопковая (- 50%)</category>
+            <category id="837" parent_id="827">распродажа чулки (- 50%)</category>
+            <category id="838" parent_id="827">имитация</category>
+            <category id="839" parent_id="827">фантазия 60-120 ден</category>
+            <category id="840" parent_id="827">распродажа чулки (- 50%)</category>
+            <category id="841" parent_id="805">Giulia</category>
+            <category id="842" parent_id="841">имитация</category>
+            <category id="843" parent_id="841">Имитация </category>
+            <category id="844" parent_id="841">фантазия весна/лето</category>
+            <category id="845" parent_id="841">фантазия осень/зима</category>
+            <category id="846" parent_id="841">фантазия хлопковая</category>
+            <category id="847" parent_id="841">Фантазия хлопковая </category>
+            <category id="848" parent_id="841">распродажа 20 ден (- 50%)</category>
+            <category id="849" parent_id="841">распродажа микрофибра (- 50%)</category>
+            <category id="850" parent_id="841">распродажа хлопковая (- 50%)</category>
+            <category id="853" parent_id="805">Marilyn</category>
+            <category id="854" parent_id="853">классика</category>
+            <category id="855" parent_id="853">корректирующие</category>
+            <category id="856" parent_id="853">распродажа линия &#34;Exclusive&#34; (- 50%)</category>
+            <category id="857" parent_id="853">распродажа линия &#34;Gucci&#34; (- 50%)</category>
+            <category id="858" parent_id="853">распродажа классика (- 50%)</category>
+            <category id="859" parent_id="853">распродажа люрекс (- 50%)</category>
+            <category id="860" parent_id="853">распродажа классика осень-зима (- 50%)</category>
+            <category id="861" parent_id="853">распродажа (- 50%)</category>
+            <category id="862" parent_id="853">распродажа фантазия осень-зима (- 50%)</category>
+            <category id="863" parent_id="853">распродажа хлопковая (- 50%)</category>
+            <category id="864" parent_id="853">распродажа чулки (- 50%)</category>
+            <category id="865" parent_id="853">фантазия весна/лето</category>
+            <category id="866" parent_id="853">фантазия осень/зима</category>
+            <category id="867" parent_id="853">фантазия хлопковая</category>
+            <category id="868" parent_id="9906">распродажа чулки (- 50%)</category>
+            <category id="869" parent_id="805">Mona</category>
+            <category id="870" parent_id="869">имитация</category>
+            <category id="871" parent_id="869">микрофибра</category>
+            <category id="872" parent_id="869">распродажа люрекс (- 50%)</category>
+            <category id="873" parent_id="869">распродажа весна/лето (- 50%)</category>
+            <category id="874" parent_id="869">распродажа чулки (- 50%)</category>
+            <category id="875" parent_id="869">фантазия </category>
+            <category id="876" parent_id="869">фантазия осень/зима</category>
+            <category id="877" parent_id="869">фантазия хлопковая</category>
+            <category id="878" parent_id="869">чулки</category>
+            <category id="884" parent_id="805">Wola</category>
+            <category id="885" parent_id="884">осенне-зимние</category>
+            <category id="886" parent_id="884">хлопковые</category>
+            <category id="7376" parent_id="439">фантазия</category>
+            <category id="7377" parent_id="810">распродажа 20-40 ден (- 50%)</category>
+            <category id="7378" parent_id="869">распродажа фантазия (- 50%)</category>
+            <category id="7379" parent_id="869">распродажа хлопковая (- 50%)</category>
+            <category id="7404" parent_id="287">леггинсы-брюки демисезонные</category>
+            <category id="7405" parent_id="287">распродажа леггинсы (- 50%)</category>
+            <category id="7407" parent_id="810">линия &#34;Obsession Sexi&#34;  </category>
+            <category id="7408" parent_id="9903">чулки на силиконе</category>
+            <category id="7409" parent_id="810">чулки под пояс</category>
+            <category id="7410" parent_id="9903">чулки под пояс </category>
+            <category id="7513" parent_id="744">Термобелье Griff</category>
+            <category id="7562" parent_id="753">распродажа (- 50%)</category>
+            <category id="7563" parent_id="754">распродажа (- 50%)</category>
+            <category id="7570" parent_id="841">Фантазия 20 ден</category>
+            <category id="7639" parent_id="405">Линия &#34;Strass&#34;</category>
+            <category id="7642" parent_id="424">распродажа (- 50%)</category>
+            <category id="7644" parent_id="869">распродажа классика (- 50%)</category>
+            <category id="7680" parent_id="12411">Линия &#34;Sport&#34;</category>
+            <category id="7691" parent_id="743">распродажа (- 50%)</category>
+            <category id="7692" parent_id="731">распродажа (- 50%)</category>
+            <category id="7693" parent_id="732">распродажа (- 50%)</category>
+            <category id="7694" parent_id="715">Jolidon</category>
+            <category id="7695" parent_id="737">распродажа (- 50%)</category>
+            <category id="7699" parent_id="661">SiSi </category>
+            <category id="7701" parent_id="334">распродажа (- 50%)</category>
+            <category id="7733" parent_id="764">линия &#34;Romantica Top&#34; </category>
+            <category id="7754" parent_id="405">Линия &#34;Ajour&#34;</category>
+            <category id="7759" parent_id="287">распродажа шорты (- 50%)</category>
+            <category id="7774" parent_id="287">детские леггинсы-брюки</category>
+            <category id="7814" parent_id="587">распродажа (- 50%)</category>
+            <category id="7817" parent_id="419">распродажа (- 50%)</category>
+            <category id="7829" parent_id="764">линия &#34;Romantica Top Plus&#34; </category>
+            <category id="7830" parent_id="570">сети</category>
+            <category id="7839" parent_id="794">распродажа (- 50%)</category>
+            <category id="7840" parent_id="696">распродажа гетры (- 50%)</category>
+            <category id="7841" parent_id="696">распродажа (- 50%)</category>
+            <category id="7843" parent_id="628">распродажа (- 50%)</category>
+            <category id="7844" parent_id="628">распродажа (- 50%)</category>
+            <category id="7845" parent_id="628">распродажа 2-6 лет (- 50%)</category>
+            <category id="7846" parent_id="884">распродажа (- 50%)</category>
+            <category id="7871" parent_id="791">распродажа (- 50%)</category>
+            <category id="7958" parent_id="74">фантазия линия &#34;Promo&#34;</category>
+            <category id="8056" parent_id="539">распродажа (- 50%)</category>
+            <category id="8094" parent_id="418">распродажа (- 50%)</category>
+            <category id="8118" parent_id="672">носки полиамидные фантазия</category>
+            <category id="8131" parent_id="9904">чулки фантазийные</category>
+            <category id="8141" parent_id="597">Сети</category>
+            <category id="8142" parent_id="661">Golden Lady </category>
+            <category id="8149" parent_id="745">распродажа (- 50%)</category>
+            <category id="8150" parent_id="751">распродажа (- 50%)</category>
+            <category id="8153" parent_id="12498">распродажа мужские (- 50%)</category>
+            <category id="9546" parent_id="780">распродажа (- 50%)</category>
+            <category id="9577" parent_id="9901">Filodoro Classic</category>
+            <category id="9578" parent_id="9901">Omsa </category>
+            <category id="9579" parent_id="9901">Sisi </category>
+            <category id="9630" parent_id="869">классика</category>
+            <category id="9631" parent_id="619">распродажа (- 50%)</category>
+            <category id="9642" parent_id="2">Гольфины</category>
+            <category id="9643" parent_id="9642">Giulia</category>
+            <category id="9644" parent_id="9643">Классика</category>
+            <category id="9656" parent_id="9643">распродажа (- 50%)</category>
+            <category id="9666" parent_id="608">фантазия 40 ден</category>
+            <category id="9674" parent_id="453">фантазия</category>
+            <category id="9679" parent_id="488">трусы подростковые</category>
+            <category id="9700" parent_id="608">распродажа демисезонная (- 50%)</category>
+            <category id="9760" parent_id="9700">Колготки детские Giulia - хлопок 2013</category>
+            <category id="9843" parent_id="683">мужские ECONOMY</category>
+            <category id="9868" parent_id="503">распродажа (- 50%)</category>
+            <category id="9882" parent_id="287">леггинсы-брюки со стразами</category>
+            <category id="9886" parent_id="841">фантазия 60-70 ден</category>
+            <category id="9900" parent_id="592">распродажа (- 50%)</category>
+            <category id="9901" parent_id="2">Чулки</category>
+            <category id="9903" parent_id="9901">Fiore</category>
+            <category id="9904" parent_id="9901">Giulia </category>
+            <category id="9905" parent_id="9901">Giulietta </category>
+            <category id="9906" parent_id="9901">Marilyn </category>
+            <category id="9907" parent_id="660">распродажа (- 50%)</category>
+            <category id="9929" parent_id="287">леггинсы-брюки - осень/зима</category>
+            <category id="9930" parent_id="287">леггинсы-брюки с молниями</category>
+            <category id="9956" parent_id="287">для беременных</category>
+            <category id="9958" parent_id="570">распродажа (- 50%)</category>
+            <category id="9969" parent_id="841">Фантазия 40 ден</category>
+            <category id="9978" parent_id="109">сети</category>
+            <category id="10004" parent_id="827">фантазия 40 ден</category>
+            <category id="10007" parent_id="9642">Gatta</category>
+            <category id="10009" parent_id="9901">Gatta </category>
+            <category id="10013" parent_id="399">майки и поло</category>
+            <category id="10023" parent_id="10009">фантазия</category>
+            <category id="10024" parent_id="10009">распродажа (- 50%)</category>
+            <category id="10029" parent_id="410">распродажа классика (- 50%)</category>
+            <category id="10044" parent_id="287">бесшовные</category>
+            <category id="10051" parent_id="604">распродажа (- 50%)</category>
+            <category id="10128" parent_id="509">распродажа &#34;Life is Color&#34; (- 50%)</category>
+            <category id="10129" parent_id="509">линия &#34;Top Fashion&#34;</category>
+            <category id="10140" parent_id="509">распродажа детские (- 50%)</category>
+            <category id="10164" parent_id="509">мужские боксеры</category>
+            <category id="10165" parent_id="810">линия &#34;Storia&#34; </category>
+            <category id="10228" parent_id="654">классика</category>
+            <category id="10229" parent_id="654">распродажа (- 50%)</category>
+            <category id="10230" parent_id="640">классика</category>
+            <category id="10232" parent_id="74">фантазия &#34;Flash Autumn&#34;</category>
+            <category id="10233" parent_id="74">фантазия &#34;Flash Summer&#34;</category>
+            <category id="10234" parent_id="509">линия &#34;Life is Color&#34;</category>
+            <category id="10262" parent_id="810">40 ден</category>
+            <category id="10269" parent_id="581">распродажа (- 50%)</category>
+            <category id="10286" parent_id="827">классика</category>
+            <category id="10316" parent_id="810">распродажа из микрофибры (- 50%)</category>
+            <category id="10340" parent_id="794">мужские футболки и майки</category>
+            <category id="10395" parent_id="10009">классика</category>
+            <category id="10427" parent_id="418">классика</category>
+            <category id="10466" parent_id="827">фантазия 20 ден</category>
+            <category id="10471" parent_id="827">люрекс</category>
+            <category id="10492" parent_id="41">детские (- 50%)</category>
+            <category id="10493" parent_id="41">детские слипы линия &#34;Promo&#34;</category>
+            <category id="10530" parent_id="715">Реклама</category>
+            <category id="10531" parent_id="10530">Ноги для колготок</category>
+            <category id="10532" parent_id="10530">Пакеты и упаковка</category>
+            <category id="10556" parent_id="9906">фантазия</category>
+            <category id="10558" parent_id="853">фантазия</category>
+            <category id="10559" parent_id="853">фантазия из микрофибры</category>
+            <category id="10560" parent_id="853">Имитация</category>
+            <category id="10561" parent_id="853">Корректирующие</category>
+            <category id="10562" parent_id="650">леггинсы</category>
+            <category id="10563" parent_id="853">фантазия хлопковая</category>
+            <category id="10574" parent_id="696">демисезонные</category>
+            <category id="10605" parent_id="547">распродажа (- 50%)</category>
+            <category id="10638" parent_id="9643">с микрофиброй</category>
+            <category id="10646" parent_id="841">линия &#34;Celebration&#34;</category>
+            <category id="10653" parent_id="549">Andra Shape</category>
+            <category id="10698" parent_id="509">мужские боксеры линия &#34;Promo&#34;</category>
+            <category id="10721" parent_id="509">линия &#34;Top Fashion&#34;</category>
+            <category id="10744" parent_id="841">распродажа имитация (- 50%)</category>
+            <category id="10792" parent_id="509">линия &#34;Luxury&#34;</category>
+            <category id="10819" parent_id="764">линия &#34;Romantica Top&#34; </category>
+            <category id="10839" parent_id="764">линия &#34;Romantica Top Plus&#34; </category>
+            <category id="10855" parent_id="9904">чулки под пояс</category>
+            <category id="10881" parent_id="396">Giulietta</category>
+            <category id="10887" parent_id="762">Giulia</category>
+            <category id="10924" parent_id="41">слипы с принтами линия &#34;Promo&#34;</category>
+            <category id="10957" parent_id="9901">Mona </category>
+            <category id="10965" parent_id="74">фантазия &#34;Flash Collection&#34;</category>
+            <category id="10966" parent_id="74">классика трусы миди и макси</category>
+            <category id="10993" parent_id="40">Eldar</category>
+            <category id="10994" parent_id="10993">распродажа (- 50%)</category>
+            <category id="11018" parent_id="488">Трусы подростковые</category>
+            <category id="11043" parent_id="74">фантазия кружевная</category>
+            <category id="11072" parent_id="841">распродажа 40 ден (- 50%)</category>
+            <category id="11089" parent_id="696">подследники</category>
+            <category id="11158" parent_id="530">распродажа линия &#34;Promo&#34; (- 50%)</category>
+            <category id="11164" parent_id="12410">Gatta</category>
+            <category id="11271" parent_id="509">распродажа мужские семейные (- 50%)</category>
+            <category id="11345" parent_id="682">Носки и гольфы Giulietta  -Сети</category>
+            <category id="11374" parent_id="841">фантазия 80-100 ден</category>
+            <category id="11375" parent_id="9904">распродажа (- 50%)</category>
+            <category id="11413" parent_id="15921">боди</category>
+            <category id="11418" parent_id="764">Eldar - линия &#34;Romantica Plus&#34; </category>
+            <category id="11448" parent_id="10887">распродажа (- 50%)</category>
+            <category id="11449" parent_id="10887">юбки</category>
+            <category id="11508" parent_id="810">микрофибра 3D</category>
+            <category id="11522" parent_id="869">имитация</category>
+            <category id="11531" parent_id="672">подследники</category>
+            <category id="11606" parent_id="12411">линия &#34;Sport Air&#34;</category>
+            <category id="11663" parent_id="399">Белье Gatta - демисезонное</category>
+            <category id="11675" parent_id="608">хлопковые &#34;Kids&#34; (104-122)</category>
+            <category id="11775" parent_id="696">осенне-зимние</category>
+            <category id="11808" parent_id="672">носки праздничные</category>
+            <category id="11809" parent_id="841">люрекс</category>
+            <category id="11917" parent_id="12498">линия &#34;Elegant&#34;</category>
+            <category id="11949" parent_id="9700">распродажа 20 ден (- 50%)</category>
+            <category id="11950" parent_id="12411">линия &#34;Sport Melange&#34;</category>
+            <category id="11973" parent_id="764">блузки с длинным рукавом</category>
+            <category id="11987" parent_id="764">майки линии &#34;Active&#34; </category>
+            <category id="11988" parent_id="764">блузки больших размеров</category>
+            <category id="11989" parent_id="764">майки </category>
+            <category id="12031" parent_id="672">носки хлопковые укороченные</category>
+            <category id="12032" parent_id="672">носки хлопковые однотонные</category>
+            <category id="12090" parent_id="509">распродажа &#34;Luxury&#34; (- 50%)</category>
+            <category id="12091" parent_id="509">распродажа &#34;Promo&#34; (- 50%)</category>
+            <category id="12095" parent_id="672">носки спортивные</category>
+            <category id="12107" parent_id="12411">линия &#34;Sport Color&#34;</category>
+            <category id="12114" parent_id="683">женские бамбук</category>
+            <category id="12115" parent_id="683">женские демисезонные</category>
+            <category id="12116" parent_id="683">женские однотонные</category>
+            <category id="12117" parent_id="683">женские осень-зима</category>
+            <category id="12120" parent_id="683">мужские весна-лето</category>
+            <category id="12121" parent_id="683">мужские осень-зима</category>
+            <category id="12127" parent_id="683">распродажа женские (- 50%)</category>
+            <category id="12128" parent_id="683">распродажа спортивные (- 50%)</category>
+            <category id="12129" parent_id="503">сети</category>
+            <category id="12132" parent_id="488">Трусы подростковые</category>
+            <category id="12161" parent_id="11">сети</category>
+            <category id="12191" parent_id="762">Amore A Prima Vista</category>
+            <category id="12213" parent_id="672">носки хлопковые с мононитью</category>
+            <category id="12266" parent_id="608">хлопковые &#34;Boy&#39;s line&#34;</category>
+            <category id="12267" parent_id="608">хлопковые &#34;Junior&#34; (122-140)</category>
+            <category id="12268" parent_id="608">хлопковые &#34;Little kids&#34; (92-104)</category>
+            <category id="12269" parent_id="608">хлопковые &#34;Teen girls&#34; (140-158)</category>
+            <category id="12284" parent_id="439">Белье Eloria - распродажа</category>
+            <category id="12326" parent_id="715">Marko</category>
+            <category id="12333" parent_id="715">Griff</category>
+            <category id="12336" parent_id="40">Snelly</category>
+            <category id="12337" parent_id="12336">женские трусы</category>
+            <category id="12341" parent_id="762">Snelly</category>
+            <category id="12342" parent_id="12341">мужские майки и пижамы</category>
+            <category id="12347" parent_id="12341">женские майки и пижамы</category>
+            <category id="12354" parent_id="12336">мужские трусы</category>
+            <category id="12387" parent_id="672">детские носки хлопковые средние</category>
+            <category id="12388" parent_id="12498">укороченные</category>
+            <category id="12395" parent_id="672">детские гольфы полиамидные</category>
+            <category id="12402" parent_id="12498">линия &#34;Flare&#34;</category>
+            <category id="12406" parent_id="9700">распродажа хлопковая (- 50%)</category>
+            <category id="12407" parent_id="672">гольфы полиамидные фантазия</category>
+            <category id="12410" parent_id="2">Спортивная одежда</category>
+            <category id="12411" parent_id="12410">Giulia</category>
+            <category id="12470" parent_id="40">Белье My Girl</category>
+            <category id="12471" parent_id="12470">Фантазия линия &#34;Promo&#34; </category>
+            <category id="12498" parent_id="661">Giulia for men</category>
+            <category id="12499" parent_id="661">Omsa for men </category>
+            <category id="12502" parent_id="672">носки с люрексом и стразами</category>
+            <category id="12509" parent_id="12411">линия &#34;Sport Rete&#34;</category>
+            <category id="12518" parent_id="12498">подследники</category>
+            <category id="12521" parent_id="12411">линия &#34;Classic&#34;</category>
+            <category id="12532" parent_id="9642">Minimi</category>
+            <category id="12544" parent_id="841">люрекс</category>
+            <category id="12548" parent_id="608">люрекс</category>
+            <category id="12570" parent_id="705">полиамидные</category>
+            <category id="12571" parent_id="705">осенне-зимние</category>
+            <category id="12572" parent_id="705">подследники</category>
+            <category id="12573" parent_id="705">хлопковые</category>
+            <category id="12606" parent_id="40">Sisi</category>
+            <category id="12651" parent_id="827">фантазия 40 ден</category>
+            <category id="12709" parent_id="764">блузки с рукавом 3/4 (- 50%)</category>
+            <category id="12746" parent_id="12499">классика</category>
+            <category id="12747" parent_id="12499">осенне-зимние</category>
+            <category id="12748" parent_id="12499">сети</category>
+            <category id="12758" parent_id="12411">линия &#34;Sport Melange Color&#34;</category>
+            <category id="12759" parent_id="12411">линия &#34;Sport Lacing&#34;</category>
+            <category id="12800" parent_id="130">Jadea</category>
+            <category id="12801" parent_id="12800">линия &#34;Chic&#34;</category>
+            <category id="12802" parent_id="780">классика</category>
+            <category id="12803" parent_id="15922">боди</category>
+            <category id="12804" parent_id="780">блузки </category>
+            <category id="12842" parent_id="286">Sisi</category>
+            <category id="12884" parent_id="715">David</category>
+            <category id="12965" parent_id="9643">Осенне-зимние</category>
+            <category id="12981" parent_id="827">линия &#34;Amandi&#34;</category>
+            <category id="12993" parent_id="827">линия &#34;Red Rose&#34;</category>
+            <category id="13002" parent_id="841">люрекс с хлопком</category>
+            <category id="13014" parent_id="74">линия &#34;Chic&#34;</category>
+            <category id="13032" parent_id="15800">Giulia</category>
+            <category id="13041" parent_id="286">Jadea</category>
+            <category id="13046" parent_id="549">Jadea</category>
+            <category id="13047" parent_id="780">линия &#34;Soft Cotton&#34;</category>
+            <category id="13068" parent_id="744">Oxouno</category>
+            <category id="13069" parent_id="13068">Детское</category>
+            <category id="13070" parent_id="13069">для девочек</category>
+            <category id="13071" parent_id="13069">для мальчиков</category>
+            <category id="13072" parent_id="762">Oxouno</category>
+            <category id="13073" parent_id="13072">женская одежда</category>
+            <category id="13074" parent_id="13072">одежда мужская</category>
+            <category id="13102" parent_id="13068">Женское</category>
+            <category id="13103" parent_id="13102">линия &#34;Anka&#34;</category>
+            <category id="13104" parent_id="13102">линия &#34;Viloft&#34;</category>
+            <category id="13105" parent_id="13068">Мужское</category>
+            <category id="13106" parent_id="13105">линия &#34;Anka&#34;</category>
+            <category id="13107" parent_id="13105">линия &#34;Viloft&#34;</category>
+            <category id="13148" parent_id="12336">Белье Snelly - женские трусы Promo</category>
+            <category id="13225" parent_id="15920">Gatta</category>
+            <category id="13226" parent_id="399">боди классика</category>
+            <category id="13227" parent_id="399">вискоза</category>
+            <category id="13251" parent_id="419">корсеты</category>
+            <category id="13256" parent_id="805">Minimi</category>
+            <category id="13260" parent_id="405">люрекс</category>
+            <category id="13279" parent_id="12411">линия &#34;Sport Run&#34;</category>
+            <category id="13286" parent_id="12498">праздничные</category>
+            <category id="13287" parent_id="12411">линия &#34;Thermo&#34;</category>
+            <category id="13322" parent_id="9642">Hobby Line</category>
+            <category id="13368" parent_id="661">Hobby Line</category>
+            <category id="13369" parent_id="13368">детские</category>
+            <category id="13370" parent_id="13369">махровые</category>
+            <category id="13371" parent_id="13368">женские</category>
+            <category id="13372" parent_id="13371">Art дизайн</category>
+            <category id="13379" parent_id="13369">3Д эффект</category>
+            <category id="13380" parent_id="13369">ангора</category>
+            <category id="13381" parent_id="13369">махровые-пенка</category>
+            <category id="13382" parent_id="13369">махровые-травка</category>
+            <category id="13383" parent_id="13369">шерстяные</category>
+            <category id="13384" parent_id="13371">аксессуары</category>
+            <category id="13431" parent_id="13371">3D эффект</category>
+            <category id="13432" parent_id="13371">ангора</category>
+            <category id="13433" parent_id="13371">вязаные</category>
+            <category id="13434" parent_id="13371">махровые внутри</category>
+            <category id="13435" parent_id="13371">махровые-пенка</category>
+            <category id="13436" parent_id="13371">махровые-травка праздничные</category>
+            <category id="13437" parent_id="13371">со смыслом</category>
+            <category id="13438" parent_id="13371">укороченные с рисунком</category>
+            <category id="13439" parent_id="13371">хлопковые с рисунком</category>
+            <category id="13440" parent_id="13371">праздничные</category>
+            <category id="13720" parent_id="672">детские носки праздничные</category>
+            <category id="13734" parent_id="40">Enrico Coveri</category>
+            <category id="13736" parent_id="13371">гетры</category>
+            <category id="13737" parent_id="74">праздничные</category>
+            <category id="13738" parent_id="41">боксеры с принтами</category>
+            <category id="13739" parent_id="15805">комплекты</category>
+            <category id="13740" parent_id="780">майки и футболки</category>
+            <category id="13806" parent_id="12800">фантазия</category>
+            <category id="13807" parent_id="12411">Линия &#34;Sport Stripe&#34;</category>
+            <category id="13811" parent_id="12498">линия &#34;Comfort melange&#34;</category>
+            <category id="13817" parent_id="13073">брюки </category>
+            <category id="13818" parent_id="13073">комплекты</category>
+            <category id="13819" parent_id="13073">футболки однотонные Classic</category>
+            <category id="13820" parent_id="13074">брюки</category>
+            <category id="13821" parent_id="13074">лонгсливы</category>
+            <category id="13825" parent_id="672">носки ажурные</category>
+            <category id="13834" parent_id="41">боксеры праздничные</category>
+            <category id="13845" parent_id="764">блузки с коротким рукавом</category>
+            <category id="13846" parent_id="764">блузки с рукавом 3/4</category>
+            <category id="13847" parent_id="10653">распродажа (- 50%)</category>
+            <category id="13848" parent_id="426">распродажа</category>
+            <category id="13858" parent_id="74">линия &#34;Gala&#34;</category>
+            <category id="13863" parent_id="12800">линия &#34;Gala&#34;</category>
+            <category id="13892" parent_id="672">носки для влюбленных</category>
+            <category id="13893" parent_id="672">гольфы хлопковые </category>
+            <category id="13901" parent_id="12498">линия &#34;Comfort city&#34;</category>
+            <category id="13907" parent_id="434">классика</category>
+            <category id="13908" parent_id="434">распродажа</category>
+            <category id="13911" parent_id="405">трусы</category>
+            <category id="13914" parent_id="841">фантазия для влюбленных</category>
+            <category id="13919" parent_id="40">Omsa for Men</category>
+            <category id="13920" parent_id="13919">боксеры с принтами</category>
+            <category id="13923" parent_id="426">классика</category>
+            <category id="13924" parent_id="439">распродажа</category>
+            <category id="13925" parent_id="439">фантазия</category>
+            <category id="13926" parent_id="13919">трусы с принтами</category>
+            <category id="13932" parent_id="841">фантазия с коррекцией</category>
+            <category id="13937" parent_id="405">майки и топы</category>
+            <category id="13946" parent_id="672">детские гольфы хлопковые</category>
+            <category id="13958" parent_id="672">носки хлопковые бесшовные</category>
+            <category id="13965" parent_id="13734">боксеры</category>
+            <category id="13966" parent_id="13734">трусы</category>
+            <category id="13983" parent_id="12498">для влюбленных</category>
+            <category id="14005" parent_id="13073">брюки с принтами</category>
+            <category id="14013" parent_id="10957">распродажа</category>
+            <category id="14015" parent_id="608">фантазия 60-80 ден</category>
+            <category id="14018" parent_id="672">гольфы с люрексом</category>
+            <category id="14024" parent_id="672">носки хлопковые высокие</category>
+            <category id="14040" parent_id="12498">спортивные</category>
+            <category id="14046" parent_id="13074">брюки с принтами</category>
+            <category id="14091" parent_id="13074">шорты</category>
+            <category id="14097" parent_id="13073">брюки с лампасами</category>
+            <category id="14098" parent_id="13073">шорты хлопковые</category>
+            <category id="14099" parent_id="13074">брюки с лампасами </category>
+            <category id="14100" parent_id="13074">футболки однотонные Slim fit</category>
+            <category id="14101" parent_id="13074">футболки с принтами</category>
+            <category id="14137" parent_id="12499">подследники</category>
+            <category id="14170" parent_id="552">комплекты</category>
+            <category id="14171" parent_id="764">водолазки</category>
+            <category id="14172" parent_id="764">футболки и майки</category>
+            <category id="14180" parent_id="13369">хлопковые</category>
+            <category id="14186" parent_id="13369">невидимые</category>
+            <category id="14187" parent_id="13371">невидимые</category>
+            <category id="14188" parent_id="13371">однотонные</category>
+            <category id="14264" parent_id="13368">мужские</category>
+            <category id="14265" parent_id="14264">невидимые</category>
+            <category id="14266" parent_id="14264">укороченные</category>
+            <category id="14277" parent_id="13734">боксеры с принтами</category>
+            <category id="14278" parent_id="13734">трусы с принтами</category>
+            <category id="14282" parent_id="74">линия &#34;Color&#34;</category>
+            <category id="14283" parent_id="13074">Шорты с принтами</category>
+            <category id="14305" parent_id="13073">свитшоты и лонгсливы</category>
+            <category id="14336" parent_id="672">детские носки хлопковые укороченные</category>
+            <category id="14351" parent_id="549">Leinle</category>
+            <category id="14385" parent_id="13073">шорты с принтами</category>
+            <category id="14392" parent_id="549">Key</category>
+            <category id="14393" parent_id="15468">комбинезоны</category>
+            <category id="14394" parent_id="15476">комплекты</category>
+            <category id="14461" parent_id="13371">Хлопковые с мононитью</category>
+            <category id="14506" parent_id="12411">линия &#34;Net&#34;</category>
+            <category id="14510" parent_id="608">хлопковые &#34;Ajour&#34;</category>
+            <category id="14557" parent_id="13073">Футболки с принтами</category>
+            <category id="14558" parent_id="13073">юбки</category>
+            <category id="14575" parent_id="9643">хлопковые фантазийные</category>
+            <category id="14602" parent_id="405">линия &#34;Rib&#34;</category>
+            <category id="14631" parent_id="12411">линия &#34;Sport Energy&#34;</category>
+            <category id="14638" parent_id="12411">линия &#34;Sport Cell&#34;</category>
+            <category id="14674" parent_id="13369">гольфы</category>
+            <category id="14732" parent_id="13371">3D элементы</category>
+            <category id="14733" parent_id="13371">люрекс</category>
+            <category id="14734" parent_id="13371">экслюзив</category>
+            <category id="14798" parent_id="549">Enrico Coveri</category>
+            <category id="14840" parent_id="841">фантазия линия &#34;Ajour&#34;</category>
+            <category id="14860" parent_id="672">гольфы хлопковые с мононитью</category>
+            <category id="14864" parent_id="405">линия &#34;Giulia Melange&#34;</category>
+            <category id="14874" parent_id="287">леггинсы-брюки кожаные</category>
+            <category id="14875" parent_id="287">леггинсы-брюки с лампасами</category>
+            <category id="14876" parent_id="287">леггинсы-брюки с эффектом &#34;Push Up&#34;</category>
+            <category id="14898" parent_id="561">линия &#39;Impresso&#34;</category>
+            <category id="14904" parent_id="722">Barbara Bettoni - раздельные</category>
+            <category id="14906" parent_id="722">Barbara Bettoni - слитные</category>
+            <category id="14940" parent_id="722">Barbara Bettoni - распродажа</category>
+            <category id="14958" parent_id="12411">линия &#34;Sport Dress&#34;</category>
+            <category id="15006" parent_id="12499">укороченные</category>
+            <category id="15040" parent_id="661">Mondo Caldo</category>
+            <category id="15045" parent_id="41">мужские трусы (- 50%)</category>
+            <category id="15073" parent_id="661">Gabriella</category>
+            <category id="15074" parent_id="15073">распродажа (-50%)</category>
+            <category id="15144" parent_id="13919">боксеры классика</category>
+            <category id="15163" parent_id="13919">трусы классика</category>
+            <category id="15171" parent_id="13322">имитация</category>
+            <category id="15172" parent_id="13322">люрекс</category>
+            <category id="15173" parent_id="13322">однотонные</category>
+            <category id="15174" parent_id="13322">со стразами</category>
+            <category id="15197" parent_id="13322">ажурные</category>
+            <category id="15198" parent_id="13322">с элементами</category>
+            <category id="15202" parent_id="600">Omsa</category>
+            <category id="15203" parent_id="15202">полиамидные</category>
+            <category id="15206" parent_id="15202">хлопковые</category>
+            <category id="15233" parent_id="13371">термоконтроль</category>
+            <category id="15234" parent_id="13371">меховые укороченные</category>
+            <category id="15241" parent_id="13371">с пухом</category>
+            <category id="15252" parent_id="13371">махровые с символом года</category>
+            <category id="15253" parent_id="14264">ангора</category>
+            <category id="15304" parent_id="13371">махровые праздничные</category>
+            <category id="15305" parent_id="13371">махровые укороченные</category>
+            <category id="15306" parent_id="13371">махровые-травка</category>
+            <category id="15328" parent_id="581">для беременных</category>
+            <category id="15334" parent_id="396">Pompea</category>
+            <category id="15335" parent_id="15334">майки и топы</category>
+            <category id="15336" parent_id="15334">трусы</category>
+            <category id="15346" parent_id="13369">меховые</category>
+            <category id="15347" parent_id="13371">меховые</category>
+            <category id="15359" parent_id="13369">термоконтроль</category>
+            <category id="15360" parent_id="14264">меховые</category>
+            <category id="15361" parent_id="14264">термоконтроль</category>
+            <category id="15379" parent_id="13369">махровые c cимволом года</category>
+            <category id="15398" parent_id="13256">фантазия 100 ден</category>
+            <category id="15399" parent_id="13256">фантазия 20-40 ден</category>
+            <category id="15400" parent_id="705">гетры</category>
+            <category id="15402" parent_id="713">детские</category>
+            <category id="15403" parent_id="713">полиамидные</category>
+            <category id="15408" parent_id="13074">майки</category>
+            <category id="15412" parent_id="12606">бразилиана</category>
+            <category id="15413" parent_id="12606">трусы</category>
+            <category id="15414" parent_id="12606">трусы миди и макси</category>
+            <category id="15419" parent_id="805">Sisi</category>
+            <category id="15435" parent_id="705">с люрексом</category>
+            <category id="15468" parent_id="14392">женская</category>
+            <category id="15469" parent_id="15468">комплекты</category>
+            <category id="15470" parent_id="15468">пижамы</category>
+            <category id="15471" parent_id="15468">платья</category>
+            <category id="15472" parent_id="15468">пончо</category>
+            <category id="15473" parent_id="15468">сорочки</category>
+            <category id="15474" parent_id="15468">туники</category>
+            <category id="15475" parent_id="15468">халаты</category>
+            <category id="15476" parent_id="14392">мужская</category>
+            <category id="15477" parent_id="15476">брюки</category>
+            <category id="15478" parent_id="15476">пижамы</category>
+            <category id="15479" parent_id="15476">халаты</category>
+            <category id="15524" parent_id="11004">Дополнение - колготки</category>
+            <category id="15574" parent_id="13371">3D печать</category>
+            <category id="15603" parent_id="13371">хлопковые праздничные</category>
+            <category id="15604" parent_id="14264">праздничные</category>
+            <category id="15618" parent_id="13371">кашемир</category>
+            <category id="15619" parent_id="14798">комплекты</category>
+            <category id="15620" parent_id="14798">пижамы линия Prestige</category>
+            <category id="15652" parent_id="13046">кардиганы</category>
+            <category id="15653" parent_id="13046">комплекты с длинным рукавом</category>
+            <category id="15654" parent_id="13046">комплекты с коротким рукавом</category>
+            <category id="15655" parent_id="13046">пижамы</category>
+            <category id="15656" parent_id="13046">платья</category>
+            <category id="15690" parent_id="13102">термошорты</category>
+            <category id="15711" parent_id="12606">стринги</category>
+            <category id="15758" parent_id="13073">худи</category>
+            <category id="15759" parent_id="13074">худи</category>
+            <category id="15774" parent_id="286">Hue</category>
+            <category id="15796" parent_id="14798">пижамы линия Sport</category>
+            <category id="15799" parent_id="12800">линия &#34;Color&#34;</category>
+            <category id="15800" parent_id="2">Бельевой трикотаж</category>
+            <category id="15801" parent_id="15800">Eldar</category>
+            <category id="15802" parent_id="15801">майки</category>
+            <category id="15803" parent_id="13032">топы</category>
+            <category id="15804" parent_id="13032">трусы</category>
+            <category id="15805" parent_id="15800">Jadea</category>
+            <category id="15806" parent_id="15805">майки </category>
+            <category id="15815" parent_id="9633">Домашняя одежда - новинки</category>
+            <category id="15816" parent_id="15815">Домашняя одежда Eldar </category>
+            <category id="15817" parent_id="15816">Белье Eldar - First Lady</category>
+            <category id="15836" parent_id="8142">полиамидные</category>
+            <category id="15837" parent_id="8142">хлопковые</category>
+            <category id="15873" parent_id="12800">праздничное</category>
+            <category id="15874" parent_id="13046">праздничные</category>
+            <category id="15920" parent_id="2">Боди</category>
+            <category id="15921" parent_id="15920">Eldar</category>
+            <category id="15922" parent_id="15920">Jadea</category>
+            <category id="15923" parent_id="15922">боди праздничные</category>
+            <category id="15927" parent_id="13225">боди</category>
+            <category id="15928" parent_id="13225">классика</category>
+            <category id="15929" parent_id="15922">боди классические</category>
+            <category id="15930" parent_id="503">фантазия</category>
+            <category id="15944" parent_id="13074">свитшоты</category>
+            <category id="15948" parent_id="334">сети</category>
+            <category id="15950" parent_id="780">водолазки</category>
+            <category id="15951" parent_id="780">лонгсливы</category>
+            <category id="15952" parent_id="780">платья</category>
+            <category id="15953" parent_id="15805">распродажа (- 50%)</category>
+            <category id="15954" parent_id="13041">леггинсы-брюки</category>
+            <category id="15955" parent_id="13041">распродажа (- 50%)</category>
+            <category id="15986" parent_id="74">линия &#34;Romantica&#34;</category>
+            <category id="16020" parent_id="9903">комплекты и пояса</category>
+            <category id="16034" parent_id="672">Носки и гольфы Giulia - детские носки хлопковые Terry</category>
+            <category id="16061" parent_id="417">Pompea</category>
+            <category id="16065" parent_id="13371">распродажа (- 50%)</category>
+            <category id="16066" parent_id="705">распродажа (- 50%)</category>
+            <category id="16090" parent_id="9633">Фантазия</category>
+            <category id="16091" parent_id="16090">новинки</category>
+            <category id="16092" parent_id="841">линия Untitled</category>
+            <category id="16103" parent_id="12499">линия &#34;Style&#34;</category>
+            <category id="16116" parent_id="12499">праздничные</category>
+            <category id="16118" parent_id="714">полиамидные</category>
+            <category id="16119" parent_id="714">хлопковые</category>
+            <category id="16131" parent_id="503">цветные</category>
+            <category id="16136" parent_id="8142">женские линия &#34;Oggi&#34;</category>
+            <category id="16137" parent_id="8142">мужские линия &#34;Oggi&#34;</category>
+            <category id="16149" parent_id="8142">хлопковые </category>
+            <category id="16171" parent_id="13919">Белье Omsa for Men - праздничные</category>
+            <category id="16178" parent_id="13919">шорты</category>
+            <category id="16211" parent_id="13368">Унисекс</category>
+            <category id="16257" parent_id="762">Одежда Omsa for Men</category>
+            <category id="16288" parent_id="15801">майки больших размеров</category>
+            <category id="16339" parent_id="16415">однотонные комплекты</category>
+            <category id="16366" parent_id="661">Wola</category>
+            <category id="16367" parent_id="16366">Женские</category>
+            <category id="16373" parent_id="16366">Мужские</category>
+            <category id="16374" parent_id="16366">линия Funky</category>
+            <category id="16415" parent_id="13368">комплекты</category>
+            <category id="16416" parent_id="16415">укороченные с рисунком комплекты</category>
+            <category id="16417" parent_id="16415">хлопковые с мононитью комплекты</category>
+            <category id="16478" parent_id="16415">Носки Hobby Line мужские - невидимые комплекты</category>
+            <category id="16479" parent_id="16415">укороченные однотонные комплекты</category>
+            <category id="16495" parent_id="16415">укороченные с рисунком комплекты</category>
+            <category id="16638" parent_id="13074">футболки однотонные Classic</category>
+            <category id="16706" parent_id="16415">хлопковые с рисунком комплекты</category>
+            <category id="16766" parent_id="13073">футболки однотонные Boyfriend</category>
+            <category id="16767" parent_id="13073">футболки однотонные Modal &amp; Viscose</category>
+            <category id="16768" parent_id="13073">футболки однотонные Oversize</category>
+            <category id="16769" parent_id="13073">футболки однотонные Slim fit</category>
+            <category id="16770" parent_id="13073">шорты Modal</category>
+            <category id="16792" parent_id="13102">линия &#34;Termal&#34;</category>
+            <category id="16806" parent_id="13371">подследники</category>
+        </categories>
+        <offers>
+            <offer id="8300276581404">
+                <name>ABSOLUTE SUMMER 8 (noce fld, 2/S)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276581442">
+                <name>ABSOLUTE SUMMER 8 (noce fld, 3/M)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966795">
+                <name>ABSOLUTE SUMMER 8 (noce fld, 4/L)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966764">
+                <name>ABSOLUTE SUMMER 8 (tea, 5/XL)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300277310362">
+                <name>ABSOLUTE SUMMER 8 (brazil, 2/S)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300277310409">
+                <name>ABSOLUTE SUMMER 8 (brazil, 3/M)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966559">
+                <name>ABSOLUTE SUMMER 8 (brazil, 4/L)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966580">
+                <name>ABSOLUTE SUMMER 8 (brazil, 5/XL)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276581084">
+                <name>ABSOLUTE SUMMER 8 (glace fld, 2/S)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276581121">
+                <name>ABSOLUTE SUMMER 8 (glace fld, 3/M)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966672">
+                <name>ABSOLUTE SUMMER 8 (glace fld, 4/L)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966702">
+                <name>ABSOLUTE SUMMER 8 (glace fld, 5/XL)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276581244">
+                <name>ABSOLUTE SUMMER 8 (nero, 2/S)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276581282">
+                <name>ABSOLUTE SUMMER 8 (nero, 3/M)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041968416">
+                <name>ABSOLUTE SUMMER 8 (nero, 4/L)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041993425">
+                <name>ABSOLUTE SUMMER 8 (nero, 5/XL)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276581886">
+                <name>ABSOLUTE SUMMER 8 (playa, 2/S)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276581923">
+                <name>ABSOLUTE SUMMER 8 (playa, 3/M)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966436">
+                <name>ABSOLUTE SUMMER 8 (playa, 4/L)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966467">
+                <name>ABSOLUTE SUMMER 8 (playa, 5/XL)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276971878">
+                <name>ABSOLUTE SUMMER 8 (tea, 2/S)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276971915">
+                <name>ABSOLUTE SUMMER 8 (tea, 3/M)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300041966733">
+                <name>ABSOLUTE SUMMER 8 (tea, 4/L)</name>
+                <url>13</url>
+            </offer>
+            <offer id="8300276681586">
+                <name>ABSOLUTE SUMMER 8 AUTO (glace fld, 4/L)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276681500">
+                <name>ABSOLUTE SUMMER 8 AUTO (glace fld, 2/S)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276681708">
+                <name>ABSOLUTE SUMMER 8 AUTO (nero, 4/L)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276681623">
+                <name>ABSOLUTE SUMMER 8 AUTO (nero, 2/S)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276681661">
+                <name>ABSOLUTE SUMMER 8 AUTO (nero, 3/M)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276682309">
+                <name>ABSOLUTE SUMMER 8 AUTO (playa, 4/L)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276682224">
+                <name>ABSOLUTE SUMMER 8 AUTO (playa, 2/S)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276682262">
+                <name>ABSOLUTE SUMMER 8 AUTO (playa, 3/M)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276974619">
+                <name>ABSOLUTE SUMMER 8 AUTO (tea, 4/L)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276974534">
+                <name>ABSOLUTE SUMMER 8 AUTO (tea, 2/S)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300276974572">
+                <name>ABSOLUTE SUMMER 8 AUTO (tea, 3/M)</name>
+                <url>14</url>
+            </offer>
+            <offer id="8300277558641">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (nero, 2/S)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300277558672">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (nero, 3/M)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300277558702">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (nero, 4/L)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300277559129">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (playa, 2/S)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300277559150">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (playa, 3/M)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300277559181">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (playa, 4/L)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300277558887">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (tea, 2/S)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300277558917">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (tea, 3/M)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300277558948">
+                <name>ABSOLUTE SUMMER 8 VITA BASSA (tea, 4/L)</name>
+                <url>15</url>
+            </offer>
+            <offer id="8300276233914">
+                <name>AFRODITA 30 (bianco, 4/L)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276233839">
+                <name>AFRODITA 30 (bianco, 2/S)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276233877">
+                <name>AFRODITA 30 (bianco, 3/M)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276833022">
+                <name>AFRODITA 30 (cappuccio fld, 4/L)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276832940">
+                <name>AFRODITA 30 (cappuccio fld, 2/S)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276832988">
+                <name>AFRODITA 30 (cappuccio fld, 3/M)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276368722">
+                <name>AFRODITA 30 (glace fld, 4/L)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276368647">
+                <name>AFRODITA 30 (glace fld, 2/S)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276368685">
+                <name>AFRODITA 30 (glace fld, 3/M)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276234393">
+                <name>AFRODITA 30 (nero, 4/L)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276234317">
+                <name>AFRODITA 30 (nero, 2/S)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276234355">
+                <name>AFRODITA 30 (nero, 3/M)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300277182143">
+                <name>AFRODITA 30 (playa, 4/L)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300277182068">
+                <name>AFRODITA 30 (playa, 2/S)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300277182105">
+                <name>AFRODITA 30 (playa, 3/M)</name>
+                <url>16</url>
+            </offer>
+            <offer id="8300276890261">
+                <name>AURORA 15 (abbronzante, 2/S)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276890292">
+                <name>AURORA 15 (abbronzante, 3/M)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276890322">
+                <name>AURORA 15 (abbronzante, 4/L)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276890353">
+                <name>AURORA 15 (abbronzante, 5/XL)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276878733">
+                <name>AURORA 15 (cappuccio fld, 2/S)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276878764">
+                <name>AURORA 15 (cappuccio fld, 3/M)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276878795">
+                <name>AURORA 15 (cappuccio fld, 4/L)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276878825">
+                <name>AURORA 15 (cappuccio fld, 5/XL)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300277198700">
+                <name>AURORA 15 (cognac fld, 2/S)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300277198731">
+                <name>AURORA 15 (cognac fld, 3/M)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300277198762">
+                <name>AURORA 15 (cognac fld, 4/L)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300277198793">
+                <name>AURORA 15 (cognac fld, 5/XL)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276878887">
+                <name>AURORA 15 (glace fld, 2/S)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276878917">
+                <name>AURORA 15 (glace fld, 3/M)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276878948">
+                <name>AURORA 15 (glace fld, 4/L)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276879037">
+                <name>AURORA 15 (nero, 2/S)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276879068">
+                <name>AURORA 15 (nero, 3/M)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276879099">
+                <name>AURORA 15 (nero, 4/L)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276879129">
+                <name>AURORA 15 (nero, 5/XL)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300277115608">
+                <name>AURORA 15 (playa, 2/S)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300277115639">
+                <name>AURORA 15 (playa, 3/M)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300277115660">
+                <name>AURORA 15 (playa, 4/L)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300277115691">
+                <name>AURORA 15 (playa, 5/XL)</name>
+                <url>17</url>
+            </offer>
+            <offer id="8300276880866">
+                <name>DELIA 15 (abbronzante, 2/S)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276880903">
+                <name>DELIA 15 (abbronzante, 3/M)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276880941">
+                <name>DELIA 15 (abbronzante, 4/L)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276830403">
+                <name>DELIA 15 (cappuccio fld, 2/S)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276830441">
+                <name>DELIA 15 (cappuccio fld, 3/M)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276830489">
+                <name>DELIA 15 (cappuccio fld, 4/L)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300277309762">
+                <name>DELIA 15 (cognac fld, 2/S)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300277309809">
+                <name>DELIA 15 (cognac fld, 3/M)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300277309847">
+                <name>DELIA 15 (cognac fld, 4/L)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276221348">
+                <name>DELIA 15 (glace fld, 2/S)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276221386">
+                <name>DELIA 15 (glace fld, 3/M)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276221423">
+                <name>DELIA 15 (glace fld, 4/L)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276221669">
+                <name>DELIA 15 (nero, 2/S)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276221706">
+                <name>DELIA 15 (nero, 3/M)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276221744">
+                <name>DELIA 15 (nero, 4/L)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276662400">
+                <name>DELIA 15 (playa, 2/S)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276662448">
+                <name>DELIA 15 (playa, 3/M)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300276662486">
+                <name>DELIA 15 (playa, 4/L)</name>
+                <url>18</url>
+            </offer>
+            <offer id="8300041891714">
+                <name>DEMETRA 20 (abbronzante, 2/S)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891745">
+                <name>DEMETRA 20 (abbronzante, 3/M)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041892919">
+                <name>DEMETRA 20 (abbronzante, 4/L)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041892971">
+                <name>DEMETRA 20 (cappuccio fld, 2/S)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041893046">
+                <name>DEMETRA 20 (cappuccio fld, 3/M)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041893077">
+                <name>DEMETRA 20 (cappuccio fld, 4/L)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891233">
+                <name>DEMETRA 20 (cognac fld, 2/S)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891264">
+                <name>DEMETRA 20 (cognac fld, 3/M)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891295">
+                <name>DEMETRA 20 (cognac fld, 4/L)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891592">
+                <name>DEMETRA 20 (glace fld, 2/S)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891622">
+                <name>DEMETRA 20 (glace fld, 3/M)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891653">
+                <name>DEMETRA 20 (glace fld, 4/L)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891356">
+                <name>DEMETRA 20 (nero, 2/S)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891387">
+                <name>DEMETRA 20 (nero, 3/M)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891417">
+                <name>DEMETRA 20 (nero, 4/L)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891110">
+                <name>DEMETRA 20 (playa, 2/S)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891141">
+                <name>DEMETRA 20 (playa, 3/M)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891172">
+                <name>DEMETRA 20 (playa, 4/L)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891479">
+                <name>DEMETRA 20 (tea, 2/S)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891509">
+                <name>DEMETRA 20 (tea, 3/M)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041891530">
+                <name>DEMETRA 20 (tea, 4/L)</name>
+                <url>20</url>
+            </offer>
+            <offer id="8300041890793">
+                <name>DEMETRA 40 (abbronzante, 2/S)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890823">
+                <name>DEMETRA 40 (abbronzante, 3/M)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890854">
+                <name>DEMETRA 40 (abbronzante, 4/L)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890915">
+                <name>DEMETRA 40 (cappuccio fld, 2/S)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890946">
+                <name>DEMETRA 40 (cappuccio fld, 3/M)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890977">
+                <name>DEMETRA 40 (cappuccio fld, 4/L)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889629">
+                <name>DEMETRA 40 (cognac fld, 2/S)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889711">
+                <name>DEMETRA 40 (cognac fld, 3/M)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889742">
+                <name>DEMETRA 40 (cognac fld, 4/L)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890670">
+                <name>DEMETRA 40 (glace fld, 2/S)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890700">
+                <name>DEMETRA 40 (glace fld, 3/M)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890731">
+                <name>DEMETRA 40 (glace fld, 4/L)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889926">
+                <name>DEMETRA 40 (nero, 2/S)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889957">
+                <name>DEMETRA 40 (nero, 3/M)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889988">
+                <name>DEMETRA 40 (nero, 4/L)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889384">
+                <name>DEMETRA 40 (playa, 2/S)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889414">
+                <name>DEMETRA 40 (playa, 3/M)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041889445">
+                <name>DEMETRA 40 (playa, 4/L)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890557">
+                <name>DEMETRA 40 (tea, 2/S)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890588">
+                <name>DEMETRA 40 (tea, 3/M)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300041890618">
+                <name>DEMETRA 40 (tea, 4/L)</name>
+                <url>21</url>
+            </offer>
+            <offer id="8300277375385">
+                <name>LINEA CHIC (glace fld, 4/L)</name>
+                <url>22</url>
+            </offer>
+            <offer id="8300277375354">
+                <name>LINEA CHIC (glace fld, 3/M)</name>
+                <url>22</url>
+            </offer>
+            <offer id="8300277375323">
+                <name>LINEA CHIC (glace fld, 2/S)</name>
+                <url>22</url>
+            </offer>
+            <offer id="8300277375477">
+                <name>LINEA CHIC (nero, 4/L)</name>
+                <url>22</url>
+            </offer>
+            <offer id="8300277375446">
+                <name>LINEA CHIC (nero, 3/M)</name>
+                <url>22</url>
+            </offer>
+            <offer id="8300277375415">
+                <name>LINEA CHIC (nero, 2/S)</name>
+                <url>22</url>
+            </offer>
+            <offer id="8300041923576">
+                <name>LINEA CHIC чулки (nero, 10-10,5)</name>
+                <url>23</url>
+            </offer>
+            <offer id="8300041923569">
+                <name>LINEA CHIC чулки (nero, 9,5)</name>
+                <url>23</url>
+            </offer>
+            <offer id="8300041923552">
+                <name>LINEA CHIC чулки (nero, 8,5-9)</name>
+                <url>23</url>
+            </offer>
+            <offer id="8300276881986">
+                <name>NINFA 20 (abbronzante, 2/S)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276882020">
+                <name>NINFA 20 (abbronzante, 3/M)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277514869">
+                <name>NINFA 20 (abbronzante, 4/L)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8033604448222">
+                <name>NINFA 20 (abbronzante, 5/XL)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276637736">
+                <name>NINFA 20 (antracite fld, 2/S)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276637774">
+                <name>NINFA 20 (antracite fld, 3/M)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277514500">
+                <name>NINFA 20 (antracite fld, 4/L)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8033604448345">
+                <name>NINFA 20 (antracite fld, 5/XL)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276019686">
+                <name>NINFA 20 (cappuccio fld, 2/S)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276019723">
+                <name>NINFA 20 (cappuccio fld, 3/M)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277514548">
+                <name>NINFA 20 (cappuccio fld, 4/L)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8033604448253">
+                <name>NINFA 20 (cappuccio fld, 5/XL)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277310843">
+                <name>NINFA 20 (cognac fld, 2/S)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277310881">
+                <name>NINFA 20 (cognac fld, 3/M)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277514623">
+                <name>NINFA 20 (cognac fld, 4/L)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8033604448161">
+                <name>NINFA 20 (cognac fld, 5/XL)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276004941">
+                <name>NINFA 20 (glace fld, 2/S)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276004958">
+                <name>NINFA 20 (glace fld, 3/M)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277514586">
+                <name>NINFA 20 (glace fld, 4/L)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8033604448192">
+                <name>NINFA 20 (glace fld, 5/XL)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276005023">
+                <name>NINFA 20 (nero, 2/S)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276005030">
+                <name>NINFA 20 (nero, 3/M)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277514661">
+                <name>NINFA 20 (nero, 4/L)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8033604448376">
+                <name>NINFA 20 (nero, 5/XL)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277146084">
+                <name>NINFA 20 (platino fld, 2/S)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277146121">
+                <name>NINFA 20 (platino fld, 3/M)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277514708">
+                <name>NINFA 20 (platino fld, 4/L)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8033604448314">
+                <name>NINFA 20 (platino fld, 5/XL)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276561567">
+                <name>NINFA 20 (playa, 2/S)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300276561604">
+                <name>NINFA 20 (playa, 3/M)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277515187">
+                <name>NINFA 20 (playa, 4/L)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8033604448130">
+                <name>NINFA 20 (playa, 5/XL)</name>
+                <url>24</url>
+            </offer>
+            <offer id="8300277475467">
+                <name>NINFA 20 VITA BASSA (cappuccio fld, 2/S)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475498">
+                <name>NINFA 20 VITA BASSA (cappuccio fld, 3/M)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475528">
+                <name>NINFA 20 VITA BASSA (cappuccio fld, 4/L)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300041851251">
+                <name>NINFA 20 VITA BASSA (cognac fld, 2/S)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300041851282">
+                <name>NINFA 20 VITA BASSA (cognac fld, 3/M)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300041851312">
+                <name>NINFA 20 VITA BASSA (cognac fld, 4/L)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475580">
+                <name>NINFA 20 VITA BASSA (glace fld, 2/S)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475610">
+                <name>NINFA 20 VITA BASSA (glace fld, 3/M)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475641">
+                <name>NINFA 20 VITA BASSA (glace fld, 4/L)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475702">
+                <name>NINFA 20 VITA BASSA (nero, 2/S)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475733">
+                <name>NINFA 20 VITA BASSA (nero, 3/M)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475764">
+                <name>NINFA 20 VITA BASSA (nero, 4/L)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475825">
+                <name>NINFA 20 VITA BASSA (playa, 2/S)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475856">
+                <name>NINFA 20 VITA BASSA (playa, 3/M)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277475887">
+                <name>NINFA 20 VITA BASSA (playa, 4/L)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277484155">
+                <name>NINFA 20 VITA BASSA (tea, 2/S)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277484186">
+                <name>NINFA 20 VITA BASSA (tea, 3/M)</name>
+                <url>25</url>
+            </offer>
+            <offer id="8300277484216">
+                <name>NINFA 20 VITA BASSA (tea, 4/L)</name>
+                <url>25</url>
+            </offer>
+        </offers>
+    </shop>
+</yml_catalog>

@@ -4,10 +4,11 @@ import (
 	"database/sql"
 	"encoding/xml"
 	"fmt"
-	_ "github.com/go-sql-driver/mysql"
 	"io"
 	"log"
 	"os"
+
+	_ "github.com/go-sql-driver/mysql"
 )
 
 var database *sql.DB
@@ -19,8 +20,9 @@ type Product struct {
 }
 
 type GroupProduct struct {
-	id   int
-	name string
+	id        int
+	parent_id int
+	name      string
 }
 
 type Offer struct {
@@ -31,9 +33,10 @@ type Offer struct {
 }
 
 type Category struct {
-	XMLName xml.Name `xml:"category"`
-	Id      int      `xml:"id,attr"`
-	Name    string   `xml:",chardata"`
+	XMLName   xml.Name `xml:"category"`
+	Id        int      `xml:"id,attr"`
+	Parent_id int      `xml:"parent_id,attr"`
+	Name      string   `xml:",chardata"`
 }
 
 type OfferArray struct {
@@ -59,7 +62,7 @@ type YmlCatalog struct {
 
 func getProduct() []Product {
 	//	rows, err := database.Query("select id, name, url from js78base.tbl_core AS c WHERE c.model='ProductItem'")
-	rows, err := database.Query("SELECT barcode, name, id_product_item FROM js78base.tbl_offers AS o WHERE o.barcode IS NOT NULL AND o.id_1c_offer > 0 AND act=1 LIMIT 500")
+	rows, err := database.Query("SELECT barcode, name, id_product_item FROM js78base.tbl_offers AS o WHERE o.barcode IS NOT NULL AND o.id_1c_offer > 0 AND act=1 LIMIT 200")
 
 	if err != nil {
 		log.Println("MySQL Error:", err)
@@ -80,8 +83,9 @@ func getProduct() []Product {
 	return products
 }
 
-func getCategory() []GroupProduct {
-	rows, err := database.Query("select id, name from js78base.tbl_product_item_kind AS pk")
+func getGroups() []GroupProduct {
+	//rows, err := database.Query("select id, name from js78base.tbl_product_item_kind AS pk")
+	rows, err := database.Query("SELECT c.id, c.parent_id, c.name FROM tbl_core AS c WHERE model='ProductGroup' AND act=1")
 	if err != nil {
 		log.Println("MySQL Error:", err)
 	}
@@ -91,7 +95,7 @@ func getCategory() []GroupProduct {
 
 	for rows.Next() {
 		p := GroupProduct{}
-		err := rows.Scan(&p.id, &p.name)
+		err := rows.Scan(&p.id, &p.parent_id, &p.name)
 		if err != nil {
 			fmt.Println(err)
 			continue
@@ -106,8 +110,8 @@ func (s *OfferArray) AddOffer(sId int, sName string, sUrl string) {
 	s.Offers = append(s.Offers, staffRecord)
 }
 
-func (s *CategoryArray) AddCategory(sId int, sName string) {
-	staffRecord := Category{Id: sId, Name: sName}
+func (s *CategoryArray) AddCategory(sId int, sParent_id int, sName string) {
+	staffRecord := Category{Id: sId, Parent_id: sParent_id, Name: sName}
 	s.Categories = append(s.Categories, staffRecord)
 }
 
@@ -122,7 +126,7 @@ func main() {
 	defer db.Close()
 
 	pDB := getProduct()
-	catDB := getCategory()
+	catDB := getGroups()
 
 	/*	filename := "ppp.txt"
 		file, err := os.Create(filename)
@@ -137,7 +141,7 @@ func main() {
 	*/
 	var v = YmlCatalog{}
 	for i := 0; i < len(catDB); i++ {
-		v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].name)
+		v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].parent_id, catDB[i].name)
 	}
 	for i := 0; i < len(pDB); i++ {
 		v.Shop.AllOffers.AddOffer(pDB[i].id, pDB[i].name, pDB[i].url)
