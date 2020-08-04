@@ -14,9 +14,16 @@ import (
 var database *sql.DB
 
 type Product struct {
-	id   int
-	name string
-	url  string
+	id          int
+	group_id    int
+	parent_id   int
+	nameProduct string
+	nameOffer   string
+	url         string
+	description string
+	barcode     int
+	uuid        string
+	amount      float32
 }
 
 type GroupProduct struct {
@@ -26,10 +33,13 @@ type GroupProduct struct {
 }
 
 type Offer struct {
-	XMLName xml.Name `xml:"offer"`
-	Id      int      `xml:"id,attr"`
-	Name    string   `xml:"name"`
-	Url     string   `xml:"url"`
+	XMLName    xml.Name `xml:"offer"`
+	Id         int      `xml:"id,attr"`
+	Group_id   int      `xml:"group_id,attr"`
+	Uuid       string   `xml:"uuid"`
+	Url        string   `xml:"url"`
+	Name       string   `xml:"name"`
+	CountItems int      `xml:"countItems"`
 }
 
 type Category struct {
@@ -61,9 +71,9 @@ type YmlCatalog struct {
 }
 
 func getProduct() []Product {
-	//	rows, err := database.Query("select id, name, url from js78base.tbl_core AS c WHERE c.model='ProductItem'")
-	rows, err := database.Query("SELECT barcode, name, id_product_item FROM js78base.tbl_offers AS o WHERE o.barcode IS NOT NULL AND o.id_1c_offer > 0 AND act=1 LIMIT 200")
-
+	// rows, err := database.Query("select id, name, url from js78base.tbl_core AS c WHERE c.model='ProductItem'")
+	// rows, err := database.Query("SELECT barcode, name, id_product_item FROM tbl_offers AS o WHERE o.barcode IS NOT NULL AND o.id_1c_offer > 0 AND act=1 LIMIT 200")
+	rows, err := database.Query("SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, c.content, o.barcode, o.id_1c_offer, ob.value FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.id LEFT OUTER JOIN tbl_offer_balance AS ob ON o.id = ob.id_offer WHERE o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 LIMIT 3000")
 	if err != nil {
 		log.Println("MySQL Error:", err)
 	}
@@ -73,9 +83,9 @@ func getProduct() []Product {
 
 	for rows.Next() {
 		p := Product{}
-		err := rows.Scan(&p.id, &p.name, &p.url)
+		err := rows.Scan(&p.id, &p.group_id, &p.parent_id, &p.nameOffer, &p.nameProduct, &p.url, &p.description, &p.barcode, &p.uuid, &p.amount)
 		if err != nil {
-			fmt.Println(err)
+			//fmt.Println(err)
 			continue
 		}
 		products = append(products, p)
@@ -105,14 +115,14 @@ func getGroups() []GroupProduct {
 	return gp
 }
 
-func (s *OfferArray) AddOffer(sId int, sName string, sUrl string) {
-	staffRecord := Offer{Id: sId, Name: sName, Url: sUrl}
-	s.Offers = append(s.Offers, staffRecord)
-}
-
 func (s *CategoryArray) AddCategory(sId int, sParent_id int, sName string) {
 	staffRecord := Category{Id: sId, Parent_id: sParent_id, Name: sName}
 	s.Categories = append(s.Categories, staffRecord)
+}
+
+func (s *OfferArray) AddOffer(sId int, sGroup_id int, sUuid string, sAmount int, sName string, sUrl string) {
+	staffRecord := Offer{Id: sId, Group_id: sGroup_id, Uuid: sUuid, CountItems: sAmount, Name: sName, Url: sUrl}
+	s.Offers = append(s.Offers, staffRecord)
 }
 
 func main() {
@@ -128,31 +138,13 @@ func main() {
 	pDB := getProduct()
 	catDB := getGroups()
 
-	/*	filename := "ppp.txt"
-		file, err := os.Create(filename)
-		if err != nil {
-			fmt.Println("Unable to save file:", err)
-			os.Exit(1)
-		}
-		defer file.Close()
-		for i := 0; i < len(catDB); i++ {
-			fmt.Fprintln(file, catDB[i].id, catDB[i].name)
-		}
-	*/
 	var v = YmlCatalog{}
 	for i := 0; i < len(catDB); i++ {
 		v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].parent_id, catDB[i].name)
 	}
 	for i := 0; i < len(pDB); i++ {
-		v.Shop.AllOffers.AddOffer(pDB[i].id, pDB[i].name, pDB[i].url)
+		v.Shop.AllOffers.AddOffer(pDB[i].id, pDB[i].group_id, pDB[i].uuid, int(pDB[i].amount), pDB[i].nameOffer, pDB[i].url)
 	}
-
-	/*	xmlString, err := xml.MarshalIndent(v, "", "    ")
-		if err != nil {
-			fmt.Println("Error in MarshalIndent: ", err)
-		}
-		fmt.Printf("%s \n", string(xmlString))
-	*/
 
 	xmlFileName := "offers.xml"
 	xmlFile, err := os.Create(xmlFileName)
