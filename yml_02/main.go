@@ -71,8 +71,7 @@ type YmlCatalog struct {
 }
 
 func getProduct() []Product {
-	// rows, err := database.Query("select id, name, url from js78base.tbl_core AS c WHERE c.model='ProductItem'")
-	// rows, err := database.Query("SELECT barcode, name, id_product_item FROM tbl_offers AS o WHERE o.barcode IS NOT NULL AND o.id_1c_offer > 0 AND act=1 LIMIT 200")
+
 	rows, err := database.Query("SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, c.content, o.barcode, o.id_1c_offer, ob.value FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.id LEFT OUTER JOIN tbl_offer_balance AS ob ON o.id = ob.id_offer WHERE o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 LIMIT 3000")
 	if err != nil {
 		log.Println("MySQL Error:", err)
@@ -85,7 +84,7 @@ func getProduct() []Product {
 		p := Product{}
 		err := rows.Scan(&p.id, &p.group_id, &p.parent_id, &p.nameOffer, &p.nameProduct, &p.url, &p.description, &p.barcode, &p.uuid, &p.amount)
 		if err != nil {
-			//fmt.Println(err)
+			fmt.Println(err)
 			continue
 		}
 		products = append(products, p)
@@ -127,7 +126,8 @@ func (s *OfferArray) AddOffer(sId int, sGroup_id int, sUuid string, sAmount int,
 
 func main() {
 
-	db, err := sql.Open("mysql", "antor:Yehat13@/js78base")
+	db, err := sql.Open("mysql", "admitex:8E5s3T7y2Y0w2W5y@/js2base")
+	//db, err := sql.Open("mysql", "antor:Yehat13@/js78base")
 	if err != nil {
 		log.Println(err)
 	}
