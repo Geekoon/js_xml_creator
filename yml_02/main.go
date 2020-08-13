@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"time"
 
 	_ "github.com/go-sql-driver/mysql"
 )
@@ -121,8 +122,12 @@ type TagShop struct {
 }
 
 type YmlCatalog struct {
-	XMLName xml.Name `xml:"yml_catalog"`
-	Shop    TagShop
+	XMLName      xml.Name `xml:"yml_catalog"`
+	DataTime     string   `xml:"datatime,attr"`
+	NumberOffers int      `xml:"number_offers,attr"`
+	Author       string   `xml:"author"`
+	Email        string   `xml:"email"`
+	Shop         TagShop
 }
 
 func changeAmount(m int) int {
@@ -286,7 +291,7 @@ func (s *OfferArray) AddOffer(
 
 func main() {
 
-	db, err := sql.Open("mysql", "antor:Yehat13@/js78base")
+	db, err := sql.Open("mysql", "root:pass123@/js78base")
 	if err != nil {
 		ErrorLogger.Println(err)
 	}
@@ -297,18 +302,18 @@ func main() {
 	pDB := getProduct()
 	catDB := getGroups()
 	propertyDB := getListProperty("SELECT id, name FROM tbl_property_values WHERE act=1")
-	//	sizeDB := getListProperty("SELECT id, value FROM tbl_feature_values WHERE id_feature=1")
-	//	colorDB := getListProperty("SELECT id, value FROM tbl_feature_values WHERE id_feature=2")
-	//	rgbDB := getListProperty("SELECT id, rgb FROM tbl_feature_values WHERE id_feature=2")
 
-	var v = YmlCatalog{}
+	numberOffers := len(pDB)
+	InfoLogger.Println("Found offers:", numberOffers)
+
+	dtnow := time.Now().Format("2006-01-02 15:04:05")
+	v := &YmlCatalog{DataTime: dtnow, NumberOffers: numberOffers, Author: "A. Orlovskikh", Email: "js-admin@mail.ru"}
+
 	for i := 0; i < len(catDB); i++ {
 		v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].parentID, catDB[i].name)
 	}
 
-	InfoLogger.Println("Found offers:", len(pDB))
-
-	for i := 0; i < len(pDB); i++ {
+	for i := 0; i < numberOffers; i++ {
 		var props [numberParam]Param
 		props[0].Name = "Пол"
 		props[0].Text = propertyDB[pDB[i].sex]
