@@ -37,27 +37,25 @@ func init() {
 
 // Product is an offer comes from base with some common good's elements
 type Product struct {
-	id           int
-	groupID      int
-	parentID     int
-	nameProduct  string
-	nameOffer    string
-	url          string
-	description  string
-	barcode      string
-	uuid         string
-	amount       int
-	price        float32
-	whosalePrice float32
-	code         string
-	brand        string
-	kind         string
-	structure    string
-	sex          int
-	age          int
-	size         string
-	color        string
-	rgb          string
+	id          int
+	groupID     int
+	parentID    int
+	nameProduct string
+	nameOffer   string
+	url         string
+	description string
+	amount      int
+	price       float32
+	brand       string
+	kind        string
+	structure   string
+	sizeType    string
+	sex         int
+	age         int
+	size        string
+	color       string
+	sizeID      string
+	colorID     string
 }
 
 // GroupProduct is a folder (from 1C) or group of goods collected together by one feature or BRAND
@@ -68,25 +66,22 @@ type GroupProduct struct {
 }
 
 type Offer struct {
-	XMLName       xml.Name            `xml:"offer"`
-	ID            int                 `xml:"id,attr"`
-	Available     string              `xml:"available,attr"`
-	Type          string              `xml:"type,attr"`
-	GroupID       int                 `xml:"group_id,attr"`
-	Name          string              `xml:"model"`
-	Brand         string              `xml:"vendor"`
-	URL           string              `xml:"url"`
-	CategoryID    int                 `xml:"categoryId"`
-	CountItems    int                 `xml:"countItems"`
-	Price         float32             `xml:"price"`
-	WhosalePrice  float32             `xml:"whosaleprice"`
-	RealBarcode   string              `xml:"realBarCode"`
-	ProductCode1C string              `xml:"productCode1C"`
-	UUID          string              `xml:"uuid"`
-	Kind          string              `xml:"typePrefix"`
-	ImageURL      string              `xml:"picture"`
-	Description   *Description        `xml:"description"`
-	Parametres    *[numberParam]Param `xml:"param"`
+	XMLName     xml.Name            `xml:"offer"`
+	ID          int                 `xml:"id,attr"`
+	Available   string              `xml:"available,attr"`
+	Type        string              `xml:"type,attr"`
+	GroupID     int                 `xml:"group_id,attr"`
+	Name        string              `xml:"model"`
+	Brand       string              `xml:"vendor"`
+	URL         string              `xml:"url"`
+	CategoryID  int                 `xml:"categoryId"`
+	CountItems  int                 `xml:"countItems"`
+	Price       float32             `xml:"price"`
+	CurrencyID  string              `xml:"currencyId"`
+	Kind        string              `xml:"typePrefix"`
+	ImageURL    string              `xml:"picture"`
+	Description *Description        `xml:"description"`
+	Parametres  *[numberParam]Param `xml:"param"`
 }
 
 type Description struct {
@@ -95,8 +90,9 @@ type Description struct {
 }
 
 type Param struct {
-	Name string `xml:"name,attr"`
-	Text string `xml:",chardata"`
+	Name    string `xml:"name,attr"`
+	AddAttr string `xml:"unit,attr,omitempty"`
+	Text    string `xml:",chardata"`
 }
 
 type Category struct {
@@ -197,12 +193,13 @@ func getImagesURL() []Images {
 }
 
 func getProduct() []Product {
-	q := "SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''), IFNULL(o.barcode, ''), " +
-		"o.id_1c_offer, CAST(ob.value AS UNSIGNED), MAX(IF(pr.id_price=1, pr.value, NULL)),	MAX(IF(pr.id_price=3, pr.value, NULL)), " +
-		"pid.code, pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pib.name, pik.name, " +
+	q := "SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''), " +
+		"CAST(ob.value AS UNSIGNED), pr.value, pid.size_type, " +
+		"pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pib.name, pik.name, " +
 		"MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, " +
 		"MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color, " +
-		"IFNULL(MAX(CASE WHEN fv.id_feature=2 THEN fv.rgb END), '') AS rgb " +
+		"MAX(CASE WHEN fv.id_feature=1 THEN fv.id END) AS sizeID, " +
+		"MAX(CASE WHEN fv.id_feature=2 THEN fv.id END) AS colorID " +
 		"FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.id " +
 		"LEFT OUTER JOIN tbl_offer_balance AS ob ON o.id = ob.id_offer " +
 		"LEFT OUTER JOIN tbl_offer_prices AS pr ON o.id = pr.id_offer " +
@@ -211,7 +208,7 @@ func getProduct() []Product {
 		"LEFT OUTER JOIN tbl_product_item_kind AS pik ON pik.id = pid.kind_id " +
 		"LEFT OUTER JOIN tbl_offer_features AS of ON o.id = of.id_offer " +
 		"LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id " +
-		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price != 2 GROUP BY o.id LIMIT 1000"
+		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price = 3 GROUP BY o.id LIMIT 1000"
 	rows, err := database.Query(q)
 	if err != nil {
 		ErrorLogger.Println("MySQL in getProduct:", err)
@@ -230,12 +227,9 @@ func getProduct() []Product {
 			&p.nameProduct,
 			&p.url,
 			&p.description,
-			&p.barcode,
-			&p.uuid,
 			&p.amount,
-			&p.whosalePrice,
 			&p.price,
-			&p.code,
+			&p.sizeType,
 			&p.sex,
 			&p.age,
 			&p.structure,
@@ -243,14 +237,15 @@ func getProduct() []Product {
 			&p.kind,
 			&p.size,
 			&p.color,
-			&p.rgb,
+			&p.sizeID,
+			&p.colorID,
 		)
 		if err != nil {
 			WarningLogger.Println("offer name:", p.nameOffer, "Err:", err)
 			continue
 		}
 		p.amount = changeAmount(p.amount)
-		p.url = filialURL + p.url
+		p.url = filialURL + p.url + "?color=" + p.colorID + "&size=" + p.sizeID
 		products = append(products, p)
 	}
 	return products
@@ -285,15 +280,11 @@ func (s *CategoryArray) AddCategory(sID int, sParentID int, sName string) {
 func (s *OfferArray) AddOffer(
 	sID int,
 	sGroupID int,
-	sUUID string,
 	sAmount int,
 	sName string,
 	sURL string,
 	sPrice float32,
-	sWhosalePrice float32,
 	sParentID int,
-	sBarcode string,
-	sCode1C string,
 	sBrand string,
 	sKind string,
 	sImage string,
@@ -301,24 +292,21 @@ func (s *OfferArray) AddOffer(
 	sParametres [numberParam]Param,
 ) {
 	staffRecord := Offer{
-		ID:            sID,
-		Available:     "true",
-		Type:          "vendor.model",
-		GroupID:       sGroupID,
-		UUID:          sUUID,
-		CountItems:    sAmount,
-		Name:          sName,
-		Brand:         sBrand,
-		URL:           sURL,
-		Price:         sPrice,
-		WhosalePrice:  sWhosalePrice,
-		CategoryID:    sParentID,
-		RealBarcode:   sBarcode,
-		ProductCode1C: sCode1C,
-		Kind:          sKind,
-		ImageURL:      sImage,
-		Description:   &Description{Text: sDescription},
-		Parametres:    &sParametres,
+		ID:          sID,
+		Available:   "true",
+		Type:        "vendor.model",
+		GroupID:     sGroupID,
+		CountItems:  sAmount,
+		Name:        sName,
+		Brand:       sBrand,
+		URL:         sURL,
+		Price:       sPrice,
+		CurrencyID:  "RUR",
+		CategoryID:  sParentID,
+		Kind:        sKind,
+		ImageURL:    sImage,
+		Description: &Description{Text: sDescription},
+		Parametres:  &sParametres,
 	}
 	s.Offers = append(s.Offers, staffRecord)
 }
@@ -358,10 +346,11 @@ func main() {
 		props[2].Text = pDB[i].structure
 		props[3].Name = "Размер"
 		props[3].Text = pDB[i].size
-		props[4].Name = "Цвет"
+		props[3].AddAttr = pDB[i].sizeType
+		props[4].Name = "RealColor"
 		props[4].Text = pDB[i].color
-		props[5].Name = "RGB"
-		props[5].Text = pDB[i].rgb
+		props[5].Name = "Цвет"
+		props[5].Text = pDB[i].color
 
 		imgURL := ""
 		for k := 0; k < len(imagesDB); k++ {
@@ -373,15 +362,11 @@ func main() {
 		v.Shop.AllOffers.AddOffer(
 			pDB[i].id,
 			pDB[i].groupID,
-			pDB[i].uuid,
 			int(pDB[i].amount),
 			pDB[i].nameOffer,
 			pDB[i].url,
 			pDB[i].price,
-			pDB[i].whosalePrice,
 			pDB[i].parentID,
-			pDB[i].barcode,
-			pDB[i].code,
 			pDB[i].brand,
 			pDB[i].kind,
 			imgURL,
