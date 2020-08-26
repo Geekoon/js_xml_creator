@@ -199,7 +199,8 @@ func getProduct() []Product {
 		"MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, " +
 		"MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color, " +
 		"MAX(CASE WHEN fv.id_feature=1 THEN fv.id END) AS sizeID, " +
-		"MAX(CASE WHEN fv.id_feature=2 THEN fv.id END) AS colorID " +
+		"MAX(CASE WHEN fv.id_feature=2 THEN fv.id END) AS colorID, " +
+		"fv.parent_color " +
 		"FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.id " +
 		"LEFT OUTER JOIN tbl_offer_balance AS ob ON o.id = ob.id_offer " +
 		"LEFT OUTER JOIN tbl_offer_prices AS pr ON o.id = pr.id_offer " +

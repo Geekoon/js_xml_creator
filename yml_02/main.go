@@ -8,6 +8,8 @@ import (
 	"os"
 	"time"
 
+	"gopkg.in/gcfg.v1"
+
 	_ "github.com/go-sql-driver/mysql"
 )
 
@@ -15,9 +17,14 @@ var (
 	WarningLogger *log.Logger
 	InfoLogger    *log.Logger
 	ErrorLogger   *log.Logger
+	FatalLogger   *log.Logger
 )
 
-var database *sql.DB
+var (
+	database *sql.DB
+	cfg      Config
+	DBpath   string
+)
 
 const (
 	filialURL   = "https://moscow.js-company.ru/"
@@ -25,14 +32,44 @@ const (
 )
 
 func init() {
-	file, err := os.OpenFile("logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	filelog, err := os.OpenFile("logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	InfoLogger = log.New(file, "INFO: ", log.Ldate|log.Lmicroseconds|log.Lshortfile)
-	WarningLogger = log.New(file, "WARNING: ", log.Ldate|log.Lmicroseconds|log.Lshortfile)
-	ErrorLogger = log.New(file, "ERROR: ", log.Ldate|log.Lmicroseconds|log.Lshortfile)
+	InfoLogger = log.New(filelog, "INFO: ", log.Ldate|log.Lmicroseconds)
+	WarningLogger = log.New(filelog, "WARNING: ", log.Ldate|log.Lmicroseconds|log.Lshortfile)
+	ErrorLogger = log.New(filelog, "ERROR: ", log.Ldate|log.Lmicroseconds|log.Lshortfile)
+	FatalLogger = log.New(filelog, "FATAL: ", log.Ldate|log.Lmicroseconds)
+
+	InfoLogger.Println("############### Starting new session ###############")
+
+	err = gcfg.ReadFileInto(&cfg, "main.gcfg")
+	if err != nil {
+		FatalLogger.Println("Couldn't open config file! Exit...")
+		os.Exit(1)
+	}
+
+	if cfg.MainSection.DBname == "" || cfg.MainSection.Username == "" || cfg.MainSection.Passuser == "" {
+		FatalLogger.Println("Wrong parameter in config file! Exit...")
+		os.Exit(1)
+	}
+
+	if cfg.MainSection.Key != 123 {
+		FatalLogger.Println("Key has expired! Goodbye...")
+		os.Exit(1)
+	}
+
+	DBpath = cfg.MainSection.Username + ":" + cfg.MainSection.Passuser + "@/" + cfg.MainSection.DBname
+}
+
+type Config struct {
+	MainSection struct {
+		DBname   string
+		Username string
+		Passuser string
+		Key      int
+	}
 }
 
 // Product is an offer comes from base with some common good's elements
@@ -198,7 +235,7 @@ func getImagesURL() []Images {
 
 func getProduct() []Product {
 	q := "SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''), IFNULL(o.barcode, ''), " +
-		"o.id_1c_offer, CAST(ob.value AS UNSIGNED), MAX(IF(pr.id_price=1, pr.value, NULL)),	MAX(IF(pr.id_price=3, pr.value, NULL)), " +
+		"o.id_1c_offer, CAST(ob.value AS SIGNED), MAX(IF(pr.id_price=1, pr.value, NULL)),	MAX(IF(pr.id_price=3, pr.value, NULL)), " +
 		"pid.code, pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pib.name, pik.name, " +
 		"MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, " +
 		"MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color, " +
@@ -269,7 +306,7 @@ func getGroups() []GroupProduct {
 		p := GroupProduct{}
 		err := rows.Scan(&p.id, &p.parentID, &p.name)
 		if err != nil {
-			ErrorLogger.Println(err)
+			WarningLogger.Println(err)
 			continue
 		}
 		gp = append(gp, p)
@@ -325,7 +362,7 @@ func (s *OfferArray) AddOffer(
 
 func main() {
 
-	db, err := sql.Open("mysql", "root:pass123@/js78base")
+	db, err := sql.Open("mysql", DBpath)
 	if err != nil {
 		ErrorLogger.Println(err)
 	}

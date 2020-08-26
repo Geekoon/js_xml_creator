@@ -3,9 +3,9 @@ SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''),
 		pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pib.name, pik.name, 
 		MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, 
 		MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color,  
-		MAX(CASE WHEN fv.id_feature=2 THEN (SELECT pc.value FROM tbl_feature_values AS pc WHERE pc.rgb = fv.parent_color) END) AS par_color,  
 		MAX(CASE WHEN fv.id_feature=1 THEN fv.id END) AS sizeID, 
-		MAX(CASE WHEN fv.id_feature=2 THEN fv.id END) AS colorID
+		MAX(CASE WHEN fv.id_feature=2 THEN fv.id END) AS colorID,
+		fv.parent_color 
 		FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.id 
 		INNER JOIN tbl_offer_balance AS ob ON o.id = ob.id_offer 
 		INNER JOIN tbl_offer_prices AS pr ON o.id = pr.id_offer 

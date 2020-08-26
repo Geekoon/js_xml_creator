@@ -1,1 +1,1 @@
-SELECT * FROM tbl_feature_values AS pc WHERE pc.rgb = 'ffffff'
+SELECT ref.name FROM tbl_reference AS ref WHERE ref.value = 'bea981'

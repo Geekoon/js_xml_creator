@@ -1,2 +1,0 @@
-INFO: 2020/08/14 11:54:46.530175 main.go:342: Found offers: 100
-INFO: 2020/08/14 12:09:46.749797 main.go:342: Found offers: 100
