@@ -1,5 +1,6 @@
 # Default ignored files
 *.xml
+*.yml
 *.cfg
 *.gcfg
 logs.txt
