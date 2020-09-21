@@ -235,7 +235,7 @@ func getImagesURL() []Images {
 func getProduct() []Product {
 	q := "SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''), " +
 		"CAST(ob.value AS UNSIGNED), pr.value, pid.size_type, " +
-		"pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pib.name, pik.name, " +
+		"pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pa.name, pik.name, " +
 		"MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, " +
 		"MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color, " +
 		"IFNULL(MAX(CASE WHEN fv.id_feature=2 THEN fv.parent_color END), 'multi') AS parentColor, " +
@@ -245,7 +245,7 @@ func getProduct() []Product {
 		"LEFT OUTER JOIN tbl_offer_balance AS ob ON o.id = ob.id_offer " +
 		"LEFT OUTER JOIN tbl_offer_prices AS pr ON o.id = pr.id_offer " +
 		"LEFT OUTER JOIN tbl_product_item_detail AS pid ON c.id = pid.id_product_item " +
-		"LEFT OUTER JOIN tbl_product_item_brand AS pib ON pid.brand_id = pib.id " +
+		"LEFT OUTER JOIN tbl_product_articles AS pa ON pid.id_article = pa.id " +
 		"LEFT OUTER JOIN tbl_product_item_kind AS pik ON pik.id = pid.kind_id " +
 		"LEFT OUTER JOIN tbl_offer_features AS of ON o.id = of.id_offer " +
 		"LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id " +
@@ -360,8 +360,8 @@ func (s *OfferArray) AddOffer(
 
 func main() {
 
-	db, err := sql.Open("mysql", "root:pass123@/js78base")
-
+	//db, err := sql.Open("mysql", "root:pass123@/js78base")
+	db, err := sql.Open("mysql", "admitex:8E5s3T7y2Y0w2W5y@/js2base")
 	if err != nil {
 		ErrorLogger.Println(err)
 	}
