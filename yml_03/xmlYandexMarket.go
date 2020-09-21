@@ -56,26 +56,27 @@ type Product struct {
 	color       string
 	sizeID      string
 	colorID     string
+	parentRGB   string
 }
 
 // GroupProduct is a folder (from 1C) or group of goods collected together by one feature or BRAND
 type GroupProduct struct {
 	id       int
-	parentID int
+	parentID string
 	name     string
 }
 
 type Offer struct {
-	XMLName     xml.Name            `xml:"offer"`
-	ID          int                 `xml:"id,attr"`
-	Available   string              `xml:"available,attr"`
-	Type        string              `xml:"type,attr"`
-	GroupID     int                 `xml:"group_id,attr"`
-	Name        string              `xml:"model"`
-	Brand       string              `xml:"vendor"`
-	URL         string              `xml:"url"`
-	CategoryID  int                 `xml:"categoryId"`
-	CountItems  int                 `xml:"countItems"`
+	XMLName    xml.Name `xml:"offer"`
+	ID         int      `xml:"id,attr"`
+	Available  string   `xml:"available,attr"`
+	Type       string   `xml:"type,attr"`
+	GroupID    int      `xml:"group_id,attr"`
+	Name       string   `xml:"model"`
+	Brand      string   `xml:"vendor"`
+	URL        string   `xml:"url"`
+	CategoryID int      `xml:"categoryId"`
+	//CountItems  int                 `xml:"countItems"`
 	Price       float32             `xml:"price"`
 	CurrencyID  string              `xml:"currencyId"`
 	Kind        string              `xml:"typePrefix"`
@@ -98,7 +99,7 @@ type Param struct {
 type Category struct {
 	XMLName  xml.Name `xml:"category"`
 	ID       int      `xml:"id,attr"`
-	ParentID int      `xml:"parent_id,attr"`
+	ParentID string   `xml:"parentId,attr,omitempty"`
 	Name     string   `xml:",chardata"`
 }
 
@@ -112,19 +113,32 @@ type CategoryArray struct {
 	Categories []Category
 }
 
+type Currencies struct {
+	XMLName  xml.Name `xml:"currencies"`
+	Currency struct {
+		Text string `xml:",chardata"`
+		ID   string `xml:"id,attr"`
+		Rate string `xml:"rate,attr"`
+	} `xml:"currency"`
+}
+
 type TagShop struct {
 	XMLName    xml.Name `xml:"shop"`
+	Name       string   `xml:"name"`
+	Company    string   `xml:"company"`
+	URL        string   `xml:"url"`
+	Author     string   `xml:"agency"`
+	Email      string   `xml:"email"`
+	Currencies Currencies
 	Categories CategoryArray
+	Delivery   string `xml:"local_delivery_cost"`
 	AllOffers  OfferArray
 }
 
 type YmlCatalog struct {
-	XMLName      xml.Name `xml:"yml_catalog"`
-	DataTime     string   `xml:"datatime,attr"`
-	NumberOffers int      `xml:"number_offers,attr"`
-	Author       string   `xml:"author"`
-	Email        string   `xml:"email"`
-	Shop         TagShop
+	XMLName  xml.Name `xml:"yml_catalog"`
+	DataTime string   `xml:"date,attr"`
+	Shop     TagShop
 }
 
 func changeAmount(m int) int {
@@ -147,15 +161,41 @@ func getListProperty(q string) map[int]string {
 
 	newList := make(map[int]string)
 
+	var (
+		id    int
+		value string
+	)
+
 	for rows.Next() {
-		id := 0
-		value := ""
 		err := rows.Scan(&id, &value)
 		if err != nil {
 			ErrorLogger.Println(err)
 			continue
 		}
 		newList[id] = value
+	}
+
+	return newList
+}
+
+func getListSS(q string) map[string]string {
+	rows, err := database.Query(q)
+	if err != nil {
+		ErrorLogger.Println("MySQL in getListProperty:", err)
+	}
+	defer rows.Close()
+
+	newList := make(map[string]string)
+
+	var name, value string
+
+	for rows.Next() {
+		err := rows.Scan(&name, &value)
+		if err != nil {
+			ErrorLogger.Println(err)
+			continue
+		}
+		newList[value] = name
 	}
 
 	return newList
@@ -198,9 +238,9 @@ func getProduct() []Product {
 		"pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pib.name, pik.name, " +
 		"MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, " +
 		"MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color, " +
+		"IFNULL(MAX(CASE WHEN fv.id_feature=2 THEN fv.parent_color END), 'multi') AS parentColor, " +
 		"MAX(CASE WHEN fv.id_feature=1 THEN fv.id END) AS sizeID, " +
-		"MAX(CASE WHEN fv.id_feature=2 THEN fv.id END) AS colorID, " +
-		"fv.parent_color " +
+		"MAX(CASE WHEN fv.id_feature=2 THEN fv.id END) AS colorID " +
 		"FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.id " +
 		"LEFT OUTER JOIN tbl_offer_balance AS ob ON o.id = ob.id_offer " +
 		"LEFT OUTER JOIN tbl_offer_prices AS pr ON o.id = pr.id_offer " +
@@ -209,7 +249,7 @@ func getProduct() []Product {
 		"LEFT OUTER JOIN tbl_product_item_kind AS pik ON pik.id = pid.kind_id " +
 		"LEFT OUTER JOIN tbl_offer_features AS of ON o.id = of.id_offer " +
 		"LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id " +
-		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price = 3 GROUP BY o.id LIMIT 1000"
+		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price = 3 GROUP BY o.id" // LIMIT 3000"
 	rows, err := database.Query(q)
 	if err != nil {
 		ErrorLogger.Println("MySQL in getProduct:", err)
@@ -238,6 +278,7 @@ func getProduct() []Product {
 			&p.kind,
 			&p.size,
 			&p.color,
+			&p.parentRGB,
 			&p.sizeID,
 			&p.colorID,
 		)
@@ -268,12 +309,17 @@ func getGroups() []GroupProduct {
 			ErrorLogger.Println(err)
 			continue
 		}
+
+		if p.parentID == "2" {
+			p.parentID = ""
+		}
+
 		gp = append(gp, p)
 	}
 	return gp
 }
 
-func (s *CategoryArray) AddCategory(sID int, sParentID int, sName string) {
+func (s *CategoryArray) AddCategory(sID int, sParentID string, sName string) {
 	staffRecord := Category{ID: sID, ParentID: sParentID, Name: sName}
 	s.Categories = append(s.Categories, staffRecord)
 }
@@ -293,11 +339,11 @@ func (s *OfferArray) AddOffer(
 	sParametres [numberParam]Param,
 ) {
 	staffRecord := Offer{
-		ID:          sID,
-		Available:   "true",
-		Type:        "vendor.model",
-		GroupID:     sGroupID,
-		CountItems:  sAmount,
+		ID:        sID,
+		Available: "true",
+		Type:      "vendor.model",
+		GroupID:   sGroupID,
+		//CountItems:  sAmount,
 		Name:        sName,
 		Brand:       sBrand,
 		URL:         sURL,
@@ -315,6 +361,7 @@ func (s *OfferArray) AddOffer(
 func main() {
 
 	db, err := sql.Open("mysql", "root:pass123@/js78base")
+
 	if err != nil {
 		ErrorLogger.Println(err)
 	}
@@ -325,17 +372,29 @@ func main() {
 	pDB := getProduct()
 	catDB := getGroups()
 	propertyDB := getListProperty("SELECT id, name FROM tbl_property_values WHERE act=1")
+	realColorDB := getListSS("SELECT name, value FROM tbl_reference WHERE model='ParentColorItem'")
 	imagesDB := getImagesURL()
 
 	numberOffers := len(pDB)
 	InfoLogger.Println("Found offers:", numberOffers)
 
 	dtnow := time.Now().Format("2006-01-02 15:04:05")
-	v := &YmlCatalog{DataTime: dtnow, NumberOffers: numberOffers, Author: "A. Orlovskikh", Email: "js-admin@mail.ru"}
+	v := &YmlCatalog{DataTime: dtnow}
+
+	v.Shop.Name = "JS-Company"
+	v.Shop.Company = "ДжиЭс Групп - Москва"
+	v.Shop.URL = filialURL
+	v.Shop.Author = "A. Orlovskikh"
+	v.Shop.Email = "js-admin@mail.ru"
+
+	v.Shop.Currencies.Currency.ID = "RUR"
+	v.Shop.Currencies.Currency.Rate = "1"
 
 	for i := 0; i < len(catDB); i++ {
 		v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].parentID, catDB[i].name)
 	}
+
+	v.Shop.Delivery = "0"
 
 	for i := 0; i < numberOffers; i++ {
 		var props [numberParam]Param
@@ -348,9 +407,14 @@ func main() {
 		props[3].Name = "Размер"
 		props[3].Text = pDB[i].size
 		props[3].AddAttr = pDB[i].sizeType
-		props[4].Name = "RealColor"
-		props[4].Text = pDB[i].color
-		props[5].Name = "Цвет"
+		props[4].Name = "Цвет"
+		prgb := pDB[i].parentRGB
+		if prgb == "multi" || prgb == "" {
+			props[4].Text = "Разноцветный"
+		} else {
+			props[4].Text = realColorDB[prgb]
+		}
+		props[5].Name = "Color name"
 		props[5].Text = pDB[i].color
 
 		imgURL := ""
@@ -376,7 +440,7 @@ func main() {
 		)
 	}
 
-	xmlFileName := "offers.xml"
+	xmlFileName := "shop_moscow.yml"
 	xmlFile, err := os.Create(xmlFileName)
 	if err != nil {
 		ErrorLogger.Println("Unable to save XML file:", err)

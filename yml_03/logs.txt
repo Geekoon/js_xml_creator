@@ -1,12 +1,19 @@
-ERROR: 2020/08/17 09:15:41.838994 xmlYandexMarket.go:213: MySQL in getProduct: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.i...' at line 1
-INFO: 2020/08/17 09:16:13.636037 xmlYandexMarket.go:334: Found offers: 1000
-INFO: 2020/08/17 09:22:48.008786 xmlYandexMarket.go:336: Found offers: 1000
-INFO: 2020/08/17 09:31:45.224887 xmlYandexMarket.go:321: Found offers: 1000
-INFO: 2020/08/17 09:33:26.148812 xmlYandexMarket.go:321: Found offers: 1000
-INFO: 2020/08/17 09:36:47.970219 xmlYandexMarket.go:321: Found offers: 1000
-INFO: 2020/08/17 09:42:54.762947 xmlYandexMarket.go:327: Found offers: 1000
-INFO: 2020/08/17 09:52:51.330257 xmlYandexMarket.go:327: Found offers: 1000
-INFO: 2020/08/17 09:54:27.352107 xmlYandexMarket.go:327: Found offers: 1000
-INFO: 2020/08/17 09:57:00.386200 xmlYandexMarket.go:327: Found offers: 1000
-INFO: 2020/08/17 10:35:38.843762 xmlYandexMarket.go:330: Found offers: 1000
-INFO: 2020/08/17 10:42:36.709941 xmlYandexMarket.go:330: Found offers: 1000
+INFO: 2020/09/21 10:06:11.198336 xmlYandexMarket.go:364: Found offers: 1000
+INFO: 2020/09/21 10:10:42.353771 xmlYandexMarket.go:360: Found offers: 1000
+ERROR: 2020/09/21 10:35:58.570428 xmlYandexMarket.go:242: MySQL in getProduct: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.i...' at line 1
+ERROR: 2020/09/21 10:36:16.234432 xmlYandexMarket.go:242: MySQL in getProduct: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.i...' at line 1
+ERROR: 2020/09/21 10:40:54.079451 xmlYandexMarket.go:242: MySQL in getProduct: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.i...' at line 1
+INFO: 2020/09/21 10:41:27.759564 xmlYandexMarket.go:360: Found offers: 1000
+INFO: 2020/09/21 15:08:52.895508 xmlYandexMarket.go:360: Found offers: 3000
+INFO: 2020/09/21 15:30:12.252844 xmlYandexMarket.go:360: Found offers: 3000
+INFO: 2020/09/21 15:36:07.944689 xmlYandexMarket.go:360: Found offers: 3000
+INFO: 2020/09/21 15:38:15.382439 xmlYandexMarket.go:360: Found offers: 3000
+INFO: 2020/09/21 15:59:14.097822 xmlYandexMarket.go:363: Found offers: 3000
+INFO: 2020/09/21 16:06:05.347836 xmlYandexMarket.go:363: Found offers: 3000
+INFO: 2020/09/21 16:53:09.866700 xmlYandexMarket.go:363: Found offers: 9152
+INFO: 2020/09/21 16:59:50.549280 xmlYandexMarket.go:363: Found offers: 9152
+INFO: 2020/09/21 17:24:59.455479 xmlYandexMarket.go:368: Found offers: 9152
+INFO: 2020/09/21 17:42:36.052754 xmlYandexMarket.go:369: Found offers: 9152
+INFO: 2020/09/21 17:57:11.304837 xmlYandexMarket.go:374: Found offers: 9152
+INFO: 2020/09/21 18:00:52.683956 xmlYandexMarket.go:380: Found offers: 9152
+INFO: 2020/09/21 18:06:22.226541 xmlYandexMarket.go:379: Found offers: 9152

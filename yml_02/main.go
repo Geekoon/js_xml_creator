@@ -61,6 +61,7 @@ func init() {
 	}
 
 	DBpath = cfg.MainSection.Username + ":" + cfg.MainSection.Passuser + "@/" + cfg.MainSection.DBname
+
 }
 
 type Config struct {
@@ -100,7 +101,7 @@ type Product struct {
 // GroupProduct is a folder (from 1C) or group of goods collected together by one feature or BRAND
 type GroupProduct struct {
 	id       int
-	parentID int
+	parentID string
 	name     string
 }
 
@@ -108,7 +109,6 @@ type Offer struct {
 	XMLName       xml.Name            `xml:"offer"`
 	ID            int                 `xml:"id,attr"`
 	Available     string              `xml:"available,attr"`
-	Type          string              `xml:"type,attr"`
 	GroupID       int                 `xml:"group_id,attr"`
 	Name          string              `xml:"model"`
 	Brand         string              `xml:"vendor"`
@@ -117,6 +117,7 @@ type Offer struct {
 	CountItems    int                 `xml:"countItems"`
 	Price         float32             `xml:"price"`
 	WhosalePrice  float32             `xml:"whosaleprice"`
+	CurrencyID    string              `xml:"currencyId"`
 	RealBarcode   string              `xml:"realBarCode"`
 	ProductCode1C string              `xml:"productCode1C"`
 	UUID          string              `xml:"uuid"`
@@ -139,7 +140,7 @@ type Param struct {
 type Category struct {
 	XMLName  xml.Name `xml:"category"`
 	ID       int      `xml:"id,attr"`
-	ParentID int      `xml:"parent_id,attr"`
+	ParentID string   `xml:"parent_id,attr,omitempty"`
 	Name     string   `xml:",chardata"`
 }
 
@@ -153,15 +154,28 @@ type CategoryArray struct {
 	Categories []Category
 }
 
+type Currencies struct {
+	XMLName  xml.Name `xml:"currencies"`
+	Currency struct {
+		Text string `xml:",chardata"`
+		ID   string `xml:"id,attr"`
+		Rate string `xml:"rate,attr"`
+	} `xml:"currency"`
+}
+
 type TagShop struct {
 	XMLName    xml.Name `xml:"shop"`
+	Name       string   `xml:"name"`
+	Company    string   `xml:"company"`
+	URL        string   `xml:"url"`
+	Currencies Currencies
 	Categories CategoryArray
 	AllOffers  OfferArray
 }
 
 type YmlCatalog struct {
 	XMLName      xml.Name `xml:"yml_catalog"`
-	DataTime     string   `xml:"datatime,attr"`
+	DataTime     string   `xml:"datetime,attr"`
 	NumberOffers int      `xml:"number_offers,attr"`
 	Author       string   `xml:"author"`
 	Email        string   `xml:"email"`
@@ -235,7 +249,7 @@ func getImagesURL() []Images {
 
 func getProduct() []Product {
 	q := "SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''), IFNULL(o.barcode, ''), " +
-		"o.id_1c_offer, CAST(ob.value AS SIGNED), MAX(IF(pr.id_price=1, pr.value, NULL)),	MAX(IF(pr.id_price=3, pr.value, NULL)), " +
+		"o.id_1c_offer, CAST(ob.value AS SIGNED), MAX(IF(pr.id_price=1, pr.value, NULL)), MAX(IF(pr.id_price=3, pr.value, NULL)), " +
 		"pid.code, pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pib.name, pik.name, " +
 		"MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, " +
 		"MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color, " +
@@ -248,7 +262,7 @@ func getProduct() []Product {
 		"LEFT OUTER JOIN tbl_product_item_kind AS pik ON pik.id = pid.kind_id " +
 		"LEFT OUTER JOIN tbl_offer_features AS of ON o.id = of.id_offer " +
 		"LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id " +
-		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price != 2 GROUP BY o.id LIMIT 1000"
+		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price != 2 GROUP BY o.id " //LIMIT 1000"
 	rows, err := database.Query(q)
 	if err != nil {
 		ErrorLogger.Println("MySQL in getProduct:", err)
@@ -309,12 +323,17 @@ func getGroups() []GroupProduct {
 			WarningLogger.Println(err)
 			continue
 		}
+
+		if p.parentID == "2" {
+			p.parentID = ""
+		}
+
 		gp = append(gp, p)
 	}
 	return gp
 }
 
-func (s *CategoryArray) AddCategory(sID int, sParentID int, sName string) {
+func (s *CategoryArray) AddCategory(sID int, sParentID string, sName string) {
 	staffRecord := Category{ID: sID, ParentID: sParentID, Name: sName}
 	s.Categories = append(s.Categories, staffRecord)
 }
@@ -340,7 +359,6 @@ func (s *OfferArray) AddOffer(
 	staffRecord := Offer{
 		ID:            sID,
 		Available:     "true",
-		Type:          "vendor.model",
 		GroupID:       sGroupID,
 		UUID:          sUUID,
 		CountItems:    sAmount,
@@ -349,6 +367,7 @@ func (s *OfferArray) AddOffer(
 		URL:           sURL,
 		Price:         sPrice,
 		WhosalePrice:  sWhosalePrice,
+		CurrencyID:    "RUR",
 		CategoryID:    sParentID,
 		RealBarcode:   sBarcode,
 		ProductCode1C: sCode1C,
@@ -380,6 +399,13 @@ func main() {
 
 	dtnow := time.Now().Format("2006-01-02 15:04:05")
 	v := &YmlCatalog{DataTime: dtnow, NumberOffers: numberOffers, Author: "A. Orlovskikh", Email: "js-admin@mail.ru"}
+
+	v.Shop.Name = "JS-Company"
+	v.Shop.Company = "ООО 'ДжиЭс Групп'"
+	v.Shop.URL = filialURL
+
+	v.Shop.Currencies.Currency.ID = "RUR"
+	v.Shop.Currencies.Currency.Rate = "1"
 
 	for i := 0; i < len(catDB); i++ {
 		v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].parentID, catDB[i].name)

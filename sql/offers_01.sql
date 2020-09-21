@@ -1,6 +1,6 @@
 SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, 
  IFNULL(c.content, '') AS content, IFNULL(o.barcode, '') AS barcode,
- o.id_1c_offer, CAST(ob.value AS INT),
+ o.id_1c_offer, CAST(ob.value AS SIGNED),
  SUM(IF(pr.id_price=1, pr.value, NULL)) AS price_opt,
  SUM(IF(pr.id_price=3, pr.value, NULL)) AS price_rozn,
  pid.code, pid.id_property_sex, pid.id_property_age, pid.structure, pib.name, pik.name,

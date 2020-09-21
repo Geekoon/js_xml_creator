@@ -1,5 +1,5 @@
 SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''), 
-		CAST(ob.value AS UNSIGNED), pr.value, pid.size_type, 
+		CAST(ob.value AS SIGNED), pr.value, pid.size_type, 
 		pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pib.name, pik.name, 
 		MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, 
 		MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color,  
