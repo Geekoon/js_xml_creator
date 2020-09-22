@@ -249,7 +249,7 @@ func getProduct() []Product {
 		"LEFT OUTER JOIN tbl_product_item_kind AS pik ON pik.id = pid.kind_id " +
 		"LEFT OUTER JOIN tbl_offer_features AS of ON o.id = of.id_offer " +
 		"LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id " +
-		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price = 3 GROUP BY o.id" // LIMIT 3000"
+		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != '00000000-0000-0000-0000-000000000000' AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price = 3 GROUP BY o.id" // LIMIT 3000"
 	rows, err := database.Query(q)
 	if err != nil {
 		ErrorLogger.Println("MySQL in getProduct:", err)
@@ -360,8 +360,8 @@ func (s *OfferArray) AddOffer(
 
 func main() {
 
-	//db, err := sql.Open("mysql", "root:pass123@/js78base")
-	db, err := sql.Open("mysql", "admitex:8E5s3T7y2Y0w2W5y@/js2base")
+	db, err := sql.Open("mysql", "root:pass123@/js78base")
+
 	if err != nil {
 		ErrorLogger.Println(err)
 	}

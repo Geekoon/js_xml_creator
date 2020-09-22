@@ -60,8 +60,8 @@ func init() {
 		os.Exit(1)
 	}
 
-	//DBpath = cfg.MainSection.Username + ":" + cfg.MainSection.Passuser + "@/" + cfg.MainSection.DBname
-	DBpath = "admitex:8E5s3T7y2Y0w2W5y@/js2base"
+	DBpath = cfg.MainSection.Username + ":" + cfg.MainSection.Passuser + "@/" + cfg.MainSection.DBname
+
 }
 
 type Config struct {
@@ -75,27 +75,22 @@ type Config struct {
 
 // Product is an offer comes from base with some common good's elements
 type Product struct {
-	id           int
-	groupID      int
-	parentID     int
-	nameProduct  string
-	nameOffer    string
-	url          string
-	description  string
-	barcode      string
-	uuid         string
-	amount       int
-	price        float32
-	whosalePrice float32
-	code         string
-	brand        string
-	kind         string
-	structure    string
-	sex          int
-	age          int
-	size         string
-	color        string
-	rgb          string
+	id          int
+	groupID     int
+	parentID    int
+	nameProduct string
+	nameOffer   string
+	url         string
+	description string
+	barcode     string
+	uuid        string
+	amount      int
+	code        string
+	brand       string
+	kind        string
+	structure   string
+	sex         int
+	age         int
 }
 
 // GroupProduct is a folder (from 1C) or group of goods collected together by one feature or BRAND
@@ -201,10 +196,38 @@ func getListProperty(q string) map[int]string {
 	defer rows.Close()
 
 	newList := make(map[int]string)
+	var (
+		id    int
+		value string
+	)
 
 	for rows.Next() {
-		id := 0
-		value := ""
+		err := rows.Scan(&id, &value)
+		if err != nil {
+			ErrorLogger.Println(err)
+			continue
+		}
+		newList[id] = value
+	}
+
+	return newList
+}
+
+func getListPrice(q string) map[int]float32 {
+	rows, err := database.Query(q)
+	if err != nil {
+		ErrorLogger.Println("MySQL in getListProperty:", err)
+	}
+	defer rows.Close()
+
+	newList := make(map[int]float32)
+
+	var (
+		id    int
+		value float32
+	)
+
+	for rows.Next() {
 		err := rows.Scan(&id, &value)
 		if err != nil {
 			ErrorLogger.Println(err)
@@ -249,20 +272,14 @@ func getImagesURL() []Images {
 
 func getProduct() []Product {
 	q := "SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''), IFNULL(o.barcode, ''), " +
-		"o.id_1c_offer, CAST(ob.value AS SIGNED), MAX(IF(pr.id_price=1, pr.value, NULL)), MAX(IF(pr.id_price=3, pr.value, NULL)), " +
-		"pid.code, pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pa.name, pik.name, " +
-		"MAX(CASE WHEN fv.id_feature=1 THEN fv.value END) AS size, " +
-		"MAX(CASE WHEN fv.id_feature=2 THEN fv.value END) AS color, " +
-		"IFNULL(MAX(CASE WHEN fv.id_feature=2 THEN fv.rgb END), '') AS rgb " +
+		"o.id_1c_offer, CAST(ob.value AS SIGNED), " +
+		"pid.code, pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pa.name, pik.name " +
 		"FROM tbl_offers AS o LEFT OUTER JOIN tbl_core AS c ON o.id_product_item = c.id " +
 		"LEFT OUTER JOIN tbl_offer_balance AS ob ON o.id = ob.id_offer " +
-		"LEFT OUTER JOIN tbl_offer_prices AS pr ON o.id = pr.id_offer " +
 		"LEFT OUTER JOIN tbl_product_item_detail AS pid ON c.id = pid.id_product_item " +
 		"LEFT OUTER JOIN tbl_product_articles AS pa ON pid.id_article = pa.id " +
 		"LEFT OUTER JOIN tbl_product_item_kind AS pik ON pik.id = pid.kind_id " +
-		"LEFT OUTER JOIN tbl_offer_features AS of ON o.id = of.id_offer " +
-		"LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id " +
-		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != 0 AND ob.id_storage=2 AND ob.value != 0 AND pr.id_price != 2 GROUP BY o.id " //LIMIT 1000"
+		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != '00000000-0000-0000-0000-000000000000' AND ob.id_storage=2 AND ob.value != 0 " //GROUP BY o.id " //LIMIT 100"
 	rows, err := database.Query(q)
 	if err != nil {
 		ErrorLogger.Println("MySQL in getProduct:", err)
@@ -284,17 +301,12 @@ func getProduct() []Product {
 			&p.barcode,
 			&p.uuid,
 			&p.amount,
-			&p.whosalePrice,
-			&p.price,
 			&p.code,
 			&p.sex,
 			&p.age,
 			&p.structure,
 			&p.brand,
 			&p.kind,
-			&p.size,
-			&p.color,
-			&p.rgb,
 		)
 		if err != nil {
 			WarningLogger.Println("offer name:", p.nameOffer, "Err:", err)
@@ -393,6 +405,11 @@ func main() {
 	catDB := getGroups()
 	propertyDB := getListProperty("SELECT id, name FROM tbl_property_values WHERE act=1")
 	imagesDB := getImagesURL()
+	sizeDB := getListProperty("SELECT of.id_offer, fv.value FROM tbl_offer_features AS of LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id WHERE fv.id_feature=1")
+	colorDB := getListProperty("SELECT of.id_offer, fv.value FROM tbl_offer_features AS of LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id WHERE fv.id_feature=2")
+	rgbDB := getListProperty("SELECT of.id_offer, IFNULL(fv.rgb, '') FROM tbl_offer_features AS of LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id WHERE fv.id_feature=2")
+	regularPriceDB := getListPrice("SELECT op.id_offer, op.value FROM tbl_offer_prices AS op WHERE op.id_price=3")
+	salesPriceDB := getListPrice("SELECT op.id_offer, op.value FROM tbl_offer_prices AS op WHERE op.id_price=1")
 
 	numberOffers := len(pDB)
 	InfoLogger.Println("Found offers:", numberOffers)
@@ -420,15 +437,15 @@ func main() {
 		props[2].Name = "Состав"
 		props[2].Text = pDB[i].structure
 		props[3].Name = "Размер"
-		props[3].Text = pDB[i].size
+		props[3].Text = sizeDB[pDB[i].id]
 		props[4].Name = "Цвет"
-		props[4].Text = pDB[i].color
+		props[4].Text = colorDB[pDB[i].id]
 		props[5].Name = "RGB"
-		props[5].Text = pDB[i].rgb
+		props[5].Text = rgbDB[pDB[i].id]
 
 		imgURL := ""
 		for k := 0; k < len(imagesDB); k++ {
-			if imagesDB[k].productID == pDB[i].groupID && (imagesDB[k].color == pDB[i].color) {
+			if imagesDB[k].productID == pDB[i].groupID && (imagesDB[k].color == colorDB[pDB[i].id]) {
 				imgURL = filialURL + imagesDB[k].URL
 			}
 		}
@@ -440,8 +457,8 @@ func main() {
 			int(pDB[i].amount),
 			pDB[i].nameOffer,
 			pDB[i].url,
-			pDB[i].price,
-			pDB[i].whosalePrice,
+			regularPriceDB[pDB[i].id],
+			salesPriceDB[pDB[i].id],
 			pDB[i].parentID,
 			pDB[i].barcode,
 			pDB[i].code,
