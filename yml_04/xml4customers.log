@@ -1,0 +1,51 @@
+INFO: 2020/09/25 13:39:27.817018 ############### Starting new session ###############
+INFO: 2020/09/25 13:39:27.904788 [moscow kazan ekaterinburg]
+INFO: 2020/09/25 13:39:27.904788 js-company.ru
+INFO: 2020/09/25 13:39:29.246450 Found offers: 1500
+INFO: 2020/09/25 14:41:09.832620 ############### Starting new session ###############
+FATAL: 2020/09/25 14:41:09.861509 Couldn't open config file! Exit... warning:
+can't store data at section "MainSection", variable "siteurl"
+
+INFO: 2020/09/25 14:42:02.720627 ############### Starting new session ###############
+INFO: 2020/09/25 14:42:03.788239 3 kazan
+INFO: 2020/09/25 14:42:03.788239 5 ekaterinburg
+INFO: 2020/09/25 14:42:03.788239 6 novosibirsk
+INFO: 2020/09/25 14:42:03.788239 7 s-petersburg
+INFO: 2020/09/25 14:42:03.788239 11 krasnodar
+INFO: 2020/09/25 14:42:03.788239 2 moscow
+INFO: 2020/09/25 14:51:55.215141 ############### Starting new session ###############
+INFO: 2020/09/25 14:51:56.124320 2 moscow
+ERROR: 2020/09/25 14:51:56.232583 xml4customers.go:317: MySQL in getProduct: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\0002 AND ob.value != 0 LIMIT 1500' at line 1
+INFO: 2020/09/25 14:58:16.884271 ############### Starting new session ###############
+INFO: 2020/09/25 14:58:17.800860 2 moscow
+ERROR: 2020/09/25 14:58:17.801822 xml4customers.go:317: MySQL in getProduct: Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '\0002 AND ob.value != 0 LIMIT 1500' at line 1
+INFO: 2020/09/25 15:03:57.824388 ############### Starting new session ###############
+INFO: 2020/09/25 15:03:58.712253 2 moscow
+INFO: 2020/09/25 15:03:58.803514 Found offers in moscow: 1500
+INFO: 2020/09/25 15:03:58.876291 3 kazan
+INFO: 2020/09/25 15:03:59.165831 Found offers in kazan: 1500
+INFO: 2020/09/25 15:03:59.247953 5 ekaterinburg
+INFO: 2020/09/25 15:03:59.377118 Found offers in ekaterinburg: 1500
+INFO: 2020/09/25 15:03:59.472374 6 novosibirsk
+INFO: 2020/09/25 15:03:59.651407 Found offers in novosibirsk: 1500
+INFO: 2020/09/25 15:03:59.843278 7 s-petersburg
+INFO: 2020/09/25 15:04:00.095579 Found offers in s-petersburg: 1500
+INFO: 2020/09/25 15:04:00.176365 11 krasnodar
+INFO: 2020/09/25 15:04:00.379854 Found offers in krasnodar: 1500
+INFO: 2020/09/25 15:10:56.299928 ############### Starting new session ###############
+INFO: 2020/09/25 15:10:57.316150 Found offers in ekaterinburg: 1500
+INFO: 2020/09/25 15:10:57.555090 Found offers in novosibirsk: 1500
+INFO: 2020/09/25 15:10:57.852548 Found offers in s-petersburg: 1500
+INFO: 2020/09/25 15:10:58.130313 Found offers in krasnodar: 1500
+INFO: 2020/09/25 15:10:58.290883 Found offers in moscow: 1500
+INFO: 2020/09/25 15:10:58.574125 Found offers in kazan: 1500
+INFO: 2020/09/25 15:25:31.381140 ############### Starting new session ###############
+INFO: 2020/09/25 15:25:32.383208 Found offers in moscow: 1500
+ERROR: 2020/09/25 15:25:32.423101 xml4customers.go:531: Unable to save XML file: open /var/www/js10/data/www/js-retail.ru/protected/runtime/api/buildmoscow.xml: The system cannot find the path specified.
+INFO: 2020/09/25 15:26:23.705373 ############### Starting new session ###############
+INFO: 2020/09/25 15:26:24.799001 Found offers in kazan: 1500
+INFO: 2020/09/25 15:26:24.989493 Found offers in ekaterinburg: 1500
+INFO: 2020/09/25 15:26:25.219874 Found offers in novosibirsk: 1500
+INFO: 2020/09/25 15:26:25.504762 Found offers in s-petersburg: 1500
+INFO: 2020/09/25 15:26:25.777081 Found offers in krasnodar: 1500
+INFO: 2020/09/25 15:26:25.933062 Found offers in moscow: 1500

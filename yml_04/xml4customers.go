@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"os"
+	"strconv"
 	"time"
 
 	"gopkg.in/gcfg.v1"
@@ -21,10 +22,9 @@ var (
 )
 
 var (
-	database        *sql.DB
-	cfg             Config
-	listFilials     []string
-	siteURL, DBpath string
+	database           *sql.DB
+	cfg                Config
+	pathResult, DBpath string
 )
 
 const (
@@ -32,7 +32,7 @@ const (
 )
 
 func init() {
-	filelog, err := os.OpenFile("logs.txt", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
+	filelog, err := os.OpenFile("xml4customers.log", os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0666)
 	if err != nil {
 		log.Fatal("Couldn't open log file 'xml4customers.log'!", err)
 	}
@@ -44,13 +44,13 @@ func init() {
 
 	InfoLogger.Println("############### Starting new session ###############")
 
-	err = gcfg.ReadFileInto(&cfg, "main.gcfg")
+	err = gcfg.ReadFileInto(&cfg, "config.gcfg")
 	if err != nil {
 		FatalLogger.Println("Couldn't open config file! Exit...", err)
 		os.Exit(1)
 	}
 
-	if cfg.MainSection.DBname == "" || cfg.MainSection.Username == "" || cfg.MainSection.Passuser == "" || cfg.MainSection.SiteURL == "" {
+	if cfg.MainSection.DBname == "" || cfg.MainSection.Username == "" || cfg.MainSection.Passuser == "" {
 		FatalLogger.Println("Wrong parameter in config file! Exit...")
 		os.Exit(1)
 	}
@@ -60,23 +60,23 @@ func init() {
 		os.Exit(1)
 	}
 
-	siteURL = cfg.MainSection.SiteURL
-	for i := 0; i < len(cfg.Filials.Names); i++ {
-		listFilials = append(listFilials, cfg.Filials.Names[i])
+	if cfg.MainSection.XmlPath == "" {
+		pathResult = "xml_result/"
+	} else {
+		pathResult = cfg.MainSection.XmlPath
 	}
+
 	DBpath = cfg.MainSection.Username + ":" + cfg.MainSection.Passuser + "@/" + cfg.MainSection.DBname
+
 }
 
 type Config struct {
 	MainSection struct {
-		SiteURL  string
 		DBname   string
 		Username string
 		Passuser string
 		Key      int
-	}
-	Filials struct {
-		Names []string
+		XmlPath  string
 	}
 	Client struct {
 		Documentation string
@@ -111,26 +111,27 @@ type GroupProduct struct {
 }
 
 type Offer struct {
-	XMLName       xml.Name            `xml:"offer"`
-	ID            int                 `xml:"id,attr"`
-	Available     string              `xml:"available,attr"`
-	GroupID       int                 `xml:"group_id,attr"`
-	Name          string              `xml:"model"`
-	Brand         string              `xml:"vendor"`
-	URL           string              `xml:"url"`
-	CategoryID    int                 `xml:"categoryId"`
-	CountItems    int                 `xml:"countItems"`
-	Price         float32             `xml:"price"`
-	WhosalePrice  float32             `xml:"whosaleprice"`
-	CurrencyID    string              `xml:"currencyId"`
-	RealBarcode   string              `xml:"realBarCode"`
-	ProductCode1C string              `xml:"productCode1C"`
-	UUID          string              `xml:"uuid"`
-	Kind          string              `xml:"typePrefix"`
-	ImageURL      *[]string           `xml:"picture"`
-	BoxImageURL   *[]string           `xml:"boxImage"`
-	Description   *Description        `xml:"description"`
-	Parametres    *[numberParam]Param `xml:"param"`
+	XMLName        xml.Name            `xml:"offer"`
+	ID             int                 `xml:"id,attr"`
+	Available      string              `xml:"available,attr"`
+	GroupID        int                 `xml:"group_id,attr"`
+	Name           string              `xml:"model"`
+	Brand          string              `xml:"vendor"`
+	URL            string              `xml:"url"`
+	CategoryID     int                 `xml:"categoryId"`
+	CountItems     int                 `xml:"countItems"`
+	Price          float32             `xml:"price"`
+	WhosalePrice   float32             `xml:"whosalePrice"`
+	WholesalePrice float32             `xml:"wholesalePrice"`
+	CurrencyID     string              `xml:"currencyId"`
+	RealBarcode    string              `xml:"realBarCode"`
+	ProductCode1C  string              `xml:"productCode1C"`
+	UUID           string              `xml:"uuid"`
+	Kind           string              `xml:"typePrefix"`
+	ImageURL       *[]string           `xml:"picture"`
+	BoxImageURL    *[]string           `xml:"boxImage"`
+	Description    *Description        `xml:"description"`
+	Parametres     *[numberParam]Param `xml:"param"`
 }
 
 type Description struct {
@@ -310,7 +311,7 @@ func getBoxImagesURL() []BoxImages {
 	return newList
 }
 
-func getProduct() []Product {
+func getProduct(num string, fn string) []Product {
 	q := "SELECT o.id, c.id, c.parent_id, c.name, o.name, c.url, IFNULL(c.content, ''), IFNULL(o.barcode, ''), " +
 		"o.id_1c_offer, CAST(ob.value AS SIGNED), " +
 		"pid.code, pid.id_property_sex, pid.id_property_age, IFNULL(pid.structure, ''), pa.name, pik.name " +
@@ -319,7 +320,7 @@ func getProduct() []Product {
 		"LEFT OUTER JOIN tbl_product_item_detail AS pid ON c.id = pid.id_product_item " +
 		"LEFT OUTER JOIN tbl_product_articles AS pa ON pid.id_article = pa.id " +
 		"LEFT OUTER JOIN tbl_product_item_kind AS pik ON pik.id = pid.kind_id " +
-		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != '00000000-0000-0000-0000-000000000000' AND ob.id_storage=2 AND ob.value != 0 " //LIMIT 1500"
+		"WHERE c.act=1 AND o.act=1 AND o.id_1c_offer != '00000000-0000-0000-0000-000000000000' AND ob.id_storage=" + num + " AND ob.value != 0 " //LIMIT 1500"
 	rows, err := database.Query(q)
 	if err != nil {
 		ErrorLogger.Println("MySQL in getProduct:", err)
@@ -353,7 +354,7 @@ func getProduct() []Product {
 			continue
 		}
 		p.amount = changeAmount(p.amount)
-		p.url = "https://" + listFilials[0] + "/" + p.url
+		p.url = "https://" + fn + ".js-company.ru/" + p.url
 		products = append(products, p)
 	}
 	return products
@@ -410,25 +411,26 @@ func (s *OfferArray) AddOffer(
 	sParametres [numberParam]Param,
 ) {
 	staffRecord := Offer{
-		ID:            sID,
-		Available:     "true",
-		GroupID:       sGroupID,
-		UUID:          sUUID,
-		CountItems:    sAmount,
-		Name:          sName,
-		Brand:         sBrand,
-		URL:           sURL,
-		Price:         sPrice,
-		WhosalePrice:  sWhosalePrice,
-		CurrencyID:    "RUR",
-		CategoryID:    sParentID,
-		RealBarcode:   sBarcode,
-		ProductCode1C: sCode1C,
-		Kind:          sKind,
-		ImageURL:      sImage,
-		BoxImageURL:   sBoxImage,
-		Description:   &Description{Text: sDescription},
-		Parametres:    &sParametres,
+		ID:             sID,
+		Available:      "true",
+		GroupID:        sGroupID,
+		UUID:           sUUID,
+		CountItems:     sAmount,
+		Name:           sName,
+		Brand:          sBrand,
+		URL:            sURL,
+		Price:          sPrice,
+		WhosalePrice:   sWhosalePrice,
+		WholesalePrice: sWhosalePrice,
+		CurrencyID:     "RUR",
+		CategoryID:     sParentID,
+		RealBarcode:    sBarcode,
+		ProductCode1C:  sCode1C,
+		Kind:           sKind,
+		ImageURL:       sImage,
+		BoxImageURL:    sBoxImage,
+		Description:    &Description{Text: sDescription},
+		Parametres:     &sParametres,
 	}
 	s.Offers = append(s.Offers, staffRecord)
 }
@@ -443,9 +445,9 @@ func main() {
 	database = db
 	defer db.Close()
 
-	pDB := getProduct()
 	catDB := getGroups()
 	propertyDB := getListProperty("SELECT id, name FROM tbl_property_values WHERE act=1")
+	filialsDB := getListProperty("SELECT id, slug FROM tbl_storage WHERE slug <> '' AND in_yml_api = 1")
 	imagesDB := getImagesURL()
 	boxImagesDB := getBoxImagesURL()
 	sizeDB := getListProperty("SELECT of.id_offer, fv.value FROM tbl_offer_features AS of LEFT OUTER JOIN tbl_feature_values AS fv ON of.id_feature_value = fv.id WHERE fv.id_feature=1")
@@ -454,89 +456,92 @@ func main() {
 	regularPriceDB := getListPrice("SELECT op.id_offer, op.value FROM tbl_offer_prices AS op WHERE op.id_price=3")
 	salesPriceDB := getListPrice("SELECT op.id_offer, op.value FROM tbl_offer_prices AS op WHERE op.id_price=1")
 
-	numberOffers := len(pDB)
-	InfoLogger.Println("Found offers:", numberOffers)
+	for j, fn := range filialsDB {
 
-	dtnow := time.Now().Format("2006-01-02 15:04:05")
-	v := &YmlCatalog{DataTime: dtnow, NumberOffers: numberOffers, Author: "A. Orlovskikh", Email: "js-admin@mail.ru"}
+		pDB := getProduct(strconv.Itoa(j), fn)
+		numberOffers := len(pDB)
+		InfoLogger.Println("Found offers in "+fn+":", numberOffers)
 
-	v.Shop.Name = "JS-Company"
-	v.Shop.Company = "ООО 'ДжиЭс Групп'"
-	v.Shop.URL = "https://" + listFilials[0]
-	v.Shop.DocsXML = "https://" + cfg.Client.Documentation
+		dtnow := time.Now().Format("2006-01-02 15:04:05")
+		v := &YmlCatalog{DataTime: dtnow, NumberOffers: numberOffers, Author: "A. Orlovskikh", Email: "js-admin@mail.ru"}
 
-	v.Shop.Currencies.Currency.ID = "RUR"
-	v.Shop.Currencies.Currency.Rate = "1"
+		v.Shop.Name = "JS-Company"
+		v.Shop.Company = "ООО 'ДжиЭс Групп'"
+		v.Shop.URL = "https://" + fn + ".js-company.ru"
+		v.Shop.DocsXML = "https://" + cfg.Client.Documentation
 
-	for i := 0; i < len(catDB); i++ {
-		v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].parentID, catDB[i].name)
-	}
+		v.Shop.Currencies.Currency.ID = "RUR"
+		v.Shop.Currencies.Currency.Rate = "1"
 
-	for i := 0; i < numberOffers; i++ {
-		var props [numberParam]Param
-		props[0].Name = "Пол"
-		props[0].Text = propertyDB[pDB[i].sex]
-		props[1].Name = "Возраст"
-		props[1].Text = propertyDB[pDB[i].age]
-		props[2].Name = "Состав"
-		props[2].Text = pDB[i].structure
-		props[3].Name = "Размер"
-		props[3].Text = sizeDB[pDB[i].id]
-		props[4].Name = "Цвет"
-		props[4].Text = colorDB[pDB[i].id]
-		props[5].Name = "RGB"
-		props[5].Text = rgbDB[pDB[i].id]
-
-		imgURL := []string{}
-		for k := 0; k < len(imagesDB); k++ {
-			if imagesDB[k].productID == pDB[i].groupID && (imagesDB[k].color == colorDB[pDB[i].id]) {
-				imgURL = append(imgURL, "https://"+siteURL+"/"+imagesDB[k].URL)
-			}
+		for i := 0; i < len(catDB); i++ {
+			v.Shop.Categories.AddCategory(catDB[i].id, catDB[i].parentID, catDB[i].name)
 		}
 
-		boxImgURL := []string{}
-		for k := 0; k < len(boxImagesDB); k++ {
-			if boxImagesDB[k].productID == pDB[i].groupID {
-				boxImgURL = append(boxImgURL, "https://"+siteURL+"/"+boxImagesDB[k].URL)
+		for i := 0; i < numberOffers; i++ {
+			var props [numberParam]Param
+			props[0].Name = "Пол"
+			props[0].Text = propertyDB[pDB[i].sex]
+			props[1].Name = "Возраст"
+			props[1].Text = propertyDB[pDB[i].age]
+			props[2].Name = "Состав"
+			props[2].Text = pDB[i].structure
+			props[3].Name = "Размер"
+			props[3].Text = sizeDB[pDB[i].id]
+			props[4].Name = "Цвет"
+			props[4].Text = colorDB[pDB[i].id]
+			props[5].Name = "RGB"
+			props[5].Text = rgbDB[pDB[i].id]
+
+			imgURL := []string{}
+			for k := 0; k < len(imagesDB); k++ {
+				if imagesDB[k].productID == pDB[i].groupID && (imagesDB[k].color == colorDB[pDB[i].id]) {
+					imgURL = append(imgURL, "https://www.js-company.ru/"+imagesDB[k].URL)
+				}
 			}
+
+			boxImgURL := []string{}
+			for k := 0; k < len(boxImagesDB); k++ {
+				if boxImagesDB[k].productID == pDB[i].groupID {
+					boxImgURL = append(boxImgURL, "https://www.js-company.ru/"+boxImagesDB[k].URL)
+				}
+			}
+
+			v.Shop.AllOffers.AddOffer(
+				pDB[i].id,
+				pDB[i].groupID,
+				pDB[i].uuid,
+				int(pDB[i].amount),
+				pDB[i].nameOffer,
+				pDB[i].url,
+				regularPriceDB[pDB[i].id],
+				salesPriceDB[pDB[i].id],
+				pDB[i].parentID,
+				pDB[i].barcode,
+				pDB[i].code,
+				pDB[i].brand,
+				pDB[i].kind,
+				&imgURL,
+				&boxImgURL,
+				pDB[i].description,
+				props,
+			)
 		}
 
-		v.Shop.AllOffers.AddOffer(
-			pDB[i].id,
-			pDB[i].groupID,
-			pDB[i].uuid,
-			int(pDB[i].amount),
-			pDB[i].nameOffer,
-			pDB[i].url,
-			regularPriceDB[pDB[i].id],
-			salesPriceDB[pDB[i].id],
-			pDB[i].parentID,
-			pDB[i].barcode,
-			pDB[i].code,
-			pDB[i].brand,
-			pDB[i].kind,
-			&imgURL,
-			&boxImgURL,
-			pDB[i].description,
-			props,
-		)
+		xmlFileName := pathResult + fn + ".xml"
+		xmlFile, err := os.Create(xmlFileName)
+		if err != nil {
+			ErrorLogger.Println("Unable to save XML file:", err)
+			os.Exit(1)
+		}
+		defer xmlFile.Close()
+		xmlWriter := io.Writer(xmlFile)
+
+		xmlWriter.Write([]byte(xml.Header))
+
+		enc := xml.NewEncoder(xmlWriter)
+		enc.Indent("", "    ")
+		if err := enc.Encode(v); err != nil {
+			ErrorLogger.Printf("Encoding err: %v\n", err)
+		}
 	}
-
-	xmlFileName := "offers.xml"
-	xmlFile, err := os.Create(xmlFileName)
-	if err != nil {
-		ErrorLogger.Println("Unable to save XML file:", err)
-		os.Exit(1)
-	}
-	defer xmlFile.Close()
-	xmlWriter := io.Writer(xmlFile)
-
-	xmlWriter.Write([]byte(xml.Header))
-
-	enc := xml.NewEncoder(xmlWriter)
-	enc.Indent("", "    ")
-	if err := enc.Encode(v); err != nil {
-		ErrorLogger.Printf("Encoding err: %v\n", err)
-	}
-
 }
